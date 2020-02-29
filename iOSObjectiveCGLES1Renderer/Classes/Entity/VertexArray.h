@@ -1,0 +1,37 @@
+// ======================================================================
+// Project Name    : ios_renderer
+//
+// Copyright © 2020 U-CREATES. All rights reserved.
+//
+// This source code is the property of U-CREATES.
+// If such findings are accepted at any time.
+// We hope the tips and helpful in developing.
+// ======================================================================
+#ifndef VertexArray_h
+#define VertexArray_h
+#import <Foundation/Foundation.h>
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
+@interface VertexArray : NSObject {
+    int _dimension;
+    int _vertexCount;
+    int _vertexColorCount;
+    GLfloat* _verticies;
+    GLfloat* _colors;
+    GLfloat* _normals;
+}
+@property(readonly) int dimension;
+@property(readonly) int count;
+@property(readonly) GLfloat* verticies;
+@property(readonly) GLfloat* colors;
+@property(readonly) GLfloat* normals;
+@property(readonly) GLushort* indicies;
+- (id)init:(int)dimension;
+- (void)releaseBuffer;
+- (void)setVertexCount:(int)count;
+- (void)setVerticies:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
+- (void)setColors:(GLfloat*)vertexColors vertexColorsCount:(int)vertexColorsCount;
+- (void)setNormals:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
+- (void)setRandomColor;
+@end
+#endif /* VertexArray_h */
