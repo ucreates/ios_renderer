@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char iOSObjectiveCGLES1RendererVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <iOSObjectiveCGLES1Renderer/PublicHeader.h>
 #import "BaseAsset.h"
 #import "CubeAsset1.h"
+#import "GLES1Light.h"
 #import "GLES1Renderer.h"
 #import "TriangleAsset1.h"
 #import "glu.h"

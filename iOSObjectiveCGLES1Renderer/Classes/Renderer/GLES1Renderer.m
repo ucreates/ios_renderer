@@ -18,6 +18,7 @@
 @property FrameBufferObject* fbo;
 @property ColorBufferObject* cbo;
 @property DepthBufferObject* dbo;
+@property NSMutableArray<GLES1Light*>* lights;
 @property ProjectonTransfomMatrix* projectonTransfomMatrix;
 @property ModelViewTransformMatrix* modelViewTransfomMatrix;
 @end
@@ -26,6 +27,7 @@
 @synthesize fbo;
 @synthesize cbo;
 @synthesize dbo;
+@synthesize lights;
 @synthesize projectonTransfomMatrix;
 @synthesize modelViewTransfomMatrix;
 - (id)init {
@@ -35,6 +37,7 @@
     self->context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
     self->projectonTransfomMatrix = [[ProjectonTransfomMatrix alloc] init];
     self->modelViewTransfomMatrix = [[ModelViewTransformMatrix alloc] init];
+    self->lights = [[NSMutableArray alloc] init];
     self->_viewport = [[Viewport alloc] init];
     self->_camera = [[GLES1Camera alloc] init];
     [EAGLContext setCurrentContext:self->context];
@@ -60,6 +63,9 @@
 }
 - (void)delete {
     [EAGLContext setCurrentContext:nil];
+    for (GLES1Light* light in self.lights) {
+        [light releaseBuffer];
+    }
     [self->fbo releaseBuffer];
     [self->cbo releaseBuffer];
     [self->dbo releaseBuffer];
@@ -105,11 +111,28 @@
 - (void)render:(BaseAsset*)asset {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    if (0 < self.lights.count) {
+        glEnable(GL_NORMALIZE);
+        glEnable(GL_LIGHTING);
+        glEnable(GL_COLOR_MATERIAL);
+        for (GLES1Light* light in self.lights) {
+            [light enable];
+        }
+    }
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
+    if (0 < self.lights.count) {
+        glEnableClientState(GL_NORMAL_ARRAY);
+    }
     glCullFace(GL_BACK);
+    for (GLES1Light* light in self.lights) {
+        [light illuminate];
+    }
     glVertexPointer(asset.vertex.dimension, GL_FLOAT, 0, asset.vertex.verticies);
     glColorPointer(kRGBA, GL_FLOAT, 0, asset.vertex.colors);
+    if (0 < self.lights.count) {
+        glNormalPointer(GL_FLOAT, 0, asset.vertex.normals);
+    }
     GLfloat tx = asset.transform.position.v[0];
     GLfloat ty = asset.transform.position.v[1];
     GLfloat tz = asset.transform.position.v[2];
@@ -129,11 +152,26 @@
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
+    if (0 < self.lights.count) {
+        glDisableClientState(GL_NORMAL_ARRAY);
+        for (GLES1Light* light in self.lights) {
+            [light disable];
+        }
+        glDisable(GL_COLOR_MATERIAL);
+        glDisable(GL_LIGHTING);
+    }
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
     return;
 }
 - (void)present {
     [self.context presentRenderbuffer:GL_RENDERBUFFER_OES];
+}
+- (void)addLight:(GLES1Light*)light {
+    if (GL_MAX_LIGHTS < self.lights.count) {
+        return;
+    }
+    [self.lights addObject:light];
+    return;
 }
 @end

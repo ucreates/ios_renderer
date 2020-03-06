@@ -15,6 +15,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import "BaseAsset.h"
 #import "GLES1Camera.h"
+#import "GLES1Light.h"
 #import "GLESColor.h"
 #import "Viewport.h"
 static const int kDimension2D = 2;
@@ -32,5 +33,6 @@ static const int kRGBA = 4;
 - (void)transform:(int)dimension;
 - (void)render:(BaseAsset*)asset;
 - (void)present;
+- (void)addLight:(GLES1Light*)light;
 @end
 #endif /* GLES1Renderer_h */
