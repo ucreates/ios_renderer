@@ -42,6 +42,8 @@
 		81C08CCF24065565004F496A /* CubeAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C08CCD24065565004F496A /* CubeAsset1.h */; };
 		81C08CD32406566A004F496A /* glu.c in Sources */ = {isa = PBXBuildFile; fileRef = 81C08CD12406566A004F496A /* glu.c */; };
 		81C08CD42406566A004F496A /* glu.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C08CD22406566A004F496A /* glu.h */; };
+		81C6E6522415BBBB00DB88F2 /* RectangleAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */; };
+		81C6E6542415BBE000DB88F2 /* RectangleAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */; };
 		81D4EC042410DC5E00E7B3F5 /* GLES1Light.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D4EC022410DC5E00E7B3F5 /* GLES1Light.m */; };
 		81D4EC052410DC5E00E7B3F5 /* GLES1Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D4EC032410DC5E00E7B3F5 /* GLES1Light.h */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 		81C08CCD24065565004F496A /* CubeAsset1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeAsset1.h; sourceTree = "<group>"; };
 		81C08CD12406566A004F496A /* glu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glu.c; sourceTree = "<group>"; };
 		81C08CD22406566A004F496A /* glu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glu.h; sourceTree = "<group>"; };
+		81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectangleAsset1.h; sourceTree = "<group>"; };
+		81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RectangleAsset1.m; sourceTree = "<group>"; };
 		81D4EC022410DC5E00E7B3F5 /* GLES1Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Light.m; sourceTree = "<group>"; };
 		81D4EC032410DC5E00E7B3F5 /* GLES1Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Light.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +260,8 @@
 			children = (
 				818755E623C319F8004BF64B /* TriangleAsset1.h */,
 				818755E723C319F8004BF64B /* TriangleAsset1.m */,
+				81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */,
+				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
 			);
 			path = Polygon;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8106333B22D302FD00A2073A /* BaseAsset.h in Headers */,
+				81C6E6522415BBBB00DB88F2 /* RectangleAsset1.h in Headers */,
 				8106333722D302FD00A2073A /* GLES1Renderer.h in Headers */,
 				81C08CD42406566A004F496A /* glu.h in Headers */,
 				814EA167240608840055F562 /* ProjectonTransfomMatrix.h in Headers */,
@@ -427,6 +434,7 @@
 				8106335022D347A700A2073A /* GLESColor.m in Sources */,
 				81C08CD32406566A004F496A /* glu.c in Sources */,
 				8106334222D302FD00A2073A /* ColorBufferObject.m in Sources */,
+				81C6E6542415BBE000DB88F2 /* RectangleAsset1.m in Sources */,
 				8106333622D302FD00A2073A /* GLES1Renderer.m in Sources */,
 				81D4EC042410DC5E00E7B3F5 /* GLES1Light.m in Sources */,
 				8106334422D302FD00A2073A /* BaseBufferObject.m in Sources */,
