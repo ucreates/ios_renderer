@@ -13,6 +13,7 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "GLESColor.h"
+#import "Material.h"
 #import "Transform.h"
 #import "VertexArray.h"
 @interface BaseAsset : NSObject {
@@ -21,11 +22,15 @@
     GLfloat _depth;
     VertexArray* _vertex;
     GLESColor* _color;
+    Material* _material;
 }
 @property Transform* transform;
 @property(readonly) GLenum renderMode;
 @property(readonly) VertexArray* vertex;
+@property(readonly) Material* material;
 - (id)init;
 - (void)create;
+- (void)dispose;
+- (void)setMaterial:(Material*)material;
 @end
 #endif /* BaseAsset_h */

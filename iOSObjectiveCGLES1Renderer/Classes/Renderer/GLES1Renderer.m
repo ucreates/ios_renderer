@@ -114,7 +114,9 @@
     if (0 < self.lights.count) {
         glEnable(GL_NORMALIZE);
         glEnable(GL_LIGHTING);
-        glEnable(GL_COLOR_MATERIAL);
+        if (nil == asset.material) {
+            glEnable(GL_COLOR_MATERIAL);
+        }
         for (GLES1Light* light in self.lights) {
             [light enable];
         }
@@ -148,6 +150,9 @@
     glRotatef(rx, 1.0f, 0.0f, 0.0f);
     glRotatef(ry, 0.0f, 1.0f, 0.0f);
     glRotatef(rz, 0.0f, 0.0f, 1.0f);
+    if (nil != asset.material) {
+        [asset.material reflect];
+    }
     glDrawArrays(asset.renderMode, 0, asset.vertex.count);
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
@@ -157,7 +162,9 @@
         for (GLES1Light* light in self.lights) {
             [light disable];
         }
-        glDisable(GL_COLOR_MATERIAL);
+        if (nil == asset.material) {
+            glDisable(GL_COLOR_MATERIAL);
+        }
         glDisable(GL_LIGHTING);
     }
     glDisable(GL_CULL_FACE);

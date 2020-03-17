@@ -16,9 +16,23 @@
 @synthesize transform;
 - (id)init {
     self->transform = [[Transform alloc] init];
+    self->_material = nil;
     return self;
 }
 - (void)create {
+    return;
+}
+- (void)dispose {
+    if (nil != self->_vertex) {
+        [self->_vertex releaseBuffer];
+    }
+    if (nil != self->_material) {
+        [self->_material releaseBuffer];
+    }
+    return;
+}
+- (void)setMaterial:(Material*)material {
+    self->_material = material;
     return;
 }
 - (GLenum)renderMode {
@@ -26,5 +40,8 @@
 }
 - (VertexArray*)vertex {
     return nil;
+}
+- (Material*)material {
+    return self->_material;
 }
 @end

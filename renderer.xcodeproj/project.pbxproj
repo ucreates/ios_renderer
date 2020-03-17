@@ -41,6 +41,7 @@
 		819D809E22D440A70076832A /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D809C22D440A70076832A /* Transform.h */; };
 		819D80A822D450080076832A /* GLES1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 819D80A622D450080076832A /* GLES1Camera.m */; };
 		819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D80A922D4524D0076832A /* GLES1Camera.h */; };
+		81AF396F241EFA8600E2136B /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF396E241EFA8600E2136B /* Material.m */; };
 		81C08CCE24065565004F496A /* CubeAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C08CCC24065565004F496A /* CubeAsset1.m */; };
 		81C08CCF24065565004F496A /* CubeAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 81C08CCD24065565004F496A /* CubeAsset1.h */; };
 		81C08CD32406566A004F496A /* glu.c in Sources */ = {isa = PBXBuildFile; fileRef = 81C08CD12406566A004F496A /* glu.c */; };
@@ -102,6 +103,8 @@
 		819D809C22D440A70076832A /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		819D80A622D450080076832A /* GLES1Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Camera.m; sourceTree = "<group>"; };
 		819D80A922D4524D0076832A /* GLES1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Camera.h; sourceTree = "<group>"; };
+		81AF396E241EFA8600E2136B /* Material.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
+		81AF3970241EFA9100E2136B /* Material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
 		81C08CCC24065565004F496A /* CubeAsset1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeAsset1.m; sourceTree = "<group>"; };
 		81C08CCD24065565004F496A /* CubeAsset1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeAsset1.h; sourceTree = "<group>"; };
 		81C08CD12406566A004F496A /* glu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glu.c; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				818755E523C319F8004BF64B /* Polygon */,
 				8106332222D302FD00A2073A /* BaseAsset.h */,
 				8106332022D302FD00A2073A /* BaseAsset.m */,
+				81AF3970241EFA9100E2136B /* Material.h */,
+				81AF396E241EFA8600E2136B /* Material.m */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				8106333922D302FD00A2073A /* BaseAsset.m in Sources */,
 				817394C522E156AF003B829B /* VertexArray.m in Sources */,
 				814EB07824185D6F00AC500C /* GLES1Angle.m in Sources */,
+				81AF396F241EFA8600E2136B /* Material.m in Sources */,
 				8106333F22D302FD00A2073A /* Viewport.m in Sources */,
 				818755E923C319F8004BF64B /* TriangleAsset1.m in Sources */,
 				8106333422D302FD00A2073A /* ModelViewTransformMatrix.m in Sources */,
