@@ -1,7 +1,7 @@
 // ======================================================================
-// Project Name    : ios_foundation
+// Project Name    : ios_renderer
 //
-// Copyright © 2018 U-CREATES. All rights reserved.
+// Copyright © 2020 U-CREATES. All rights reserved.
 //
 // This source code is the property of U-CREATES.
 // If such findings are accepted at any time.

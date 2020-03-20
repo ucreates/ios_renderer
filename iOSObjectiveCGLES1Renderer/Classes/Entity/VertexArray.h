@@ -31,7 +31,7 @@
 - (void)setVertexCount:(int)count;
 - (void)setVerticies:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
 - (void)setColors:(GLfloat*)vertexColors vertexColorsCount:(int)vertexColorsCount;
-- (void)setNormals:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
+- (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount;
 - (void)setRandomColor;
 @end
 #endif /* VertexArray_h */

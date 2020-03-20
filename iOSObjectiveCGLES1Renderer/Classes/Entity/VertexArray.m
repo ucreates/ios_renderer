@@ -62,44 +62,14 @@ static const int kVertexCountPerTriangle = 3;
     self->_vertexColorCount = vertexColorsCount;
     return;
 }
-- (void)setNormals:(GLfloat*)verticies verticiesCount:(int)verticiesCount {
-    if (0 == verticiesCount || kDimension2D == self.dimension) {
+- (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount {
+    if (0 == normalsCount) {
         return;
     }
-    int memsize = self->_vertexCount * kDimension3D * sizeof(GLfloat);
+    int memsize = normalsCount * sizeof(GLfloat);
     self->_normals = (GLfloat*)malloc(memsize);
-    int triangleCount = verticiesCount / (kVertexCountPerTriangle * self.dimension);
-    int vidx = 0;
-    for (int i = 0; i < triangleCount; i++) {
-        GLfloat x1 = verticies[vidx];
-        GLfloat y1 = verticies[vidx + 1];
-        GLfloat z1 = verticies[vidx + 2];
-        GLfloat x2 = verticies[vidx + 3];
-        GLfloat y2 = verticies[vidx + 4];
-        GLfloat z2 = verticies[vidx + 5];
-        GLfloat x3 = verticies[vidx + 6];
-        GLfloat y3 = verticies[vidx + 7];
-        GLfloat z3 = verticies[vidx + 8];
-        GLfloat vx1 = x2 - x1;
-        GLfloat vy1 = y2 - y1;
-        GLfloat vz1 = z2 - z1;
-        GLfloat vx2 = x3 - x1;
-        GLfloat vy2 = y3 - y1;
-        GLfloat vz2 = z3 - z1;
-        GLfloat nx = vy1 * vz2 - vz1 * vy2;
-        GLfloat ny = vz1 * vx2 - vx1 * vz2;
-        GLfloat nz = vx1 * vy2 - vy1 * vx2;
-        self->_normals[vidx] = nx;
-        self->_normals[vidx + 1] = ny;
-        self->_normals[vidx + 2] = nz;
-        self->_normals[vidx + 3] = nx;
-        self->_normals[vidx + 4] = ny;
-        self->_normals[vidx + 5] = nz;
-        self->_normals[vidx + 6] = nx;
-        self->_normals[vidx + 7] = ny;
-        self->_normals[vidx + 8] = nz;
-        vidx += 9;
-        NSLog(@"normal vector.x::%f,vector.y::%f,vector.z::%f", nx, ny, nz);
+    for (int i = 0; i < normalsCount; i++) {
+        self->_normals[i] = normals[i];
     }
     return;
 }

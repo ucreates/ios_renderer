@@ -25,6 +25,10 @@
 		8106334522D302FD00A2073A /* ColorBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8106332F22D302FD00A2073A /* ColorBufferObject.h */; };
 		8106334F22D347A700A2073A /* GLESColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8106334D22D347A700A2073A /* GLESColor.h */; };
 		8106335022D347A700A2073A /* GLESColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8106334E22D347A700A2073A /* GLESColor.m */; };
+		811A48A72421941400C2BE66 /* SphereAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 811A48A62421941400C2BE66 /* SphereAsset1.m */; };
+		811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48A82421942000C2BE66 /* SphereAsset1.h */; };
+		811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = 811A48B024219F9100C2BE66 /* GLES1Normal.m */; };
+		811A48B324219F9D00C2BE66 /* GLES1Normal.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48B224219F9D00C2BE66 /* GLES1Normal.h */; };
 		814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 814B975A22D4A87C000CE7DA /* DepthBufferObject.h */; };
 		814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B975C22D4A886000CE7DA /* DepthBufferObject.m */; };
 		814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EA164240608840055F562 /* ProjectonTransfomMatrix.m */; };
@@ -84,6 +88,10 @@
 		8106332F22D302FD00A2073A /* ColorBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBufferObject.h; sourceTree = "<group>"; };
 		8106334D22D347A700A2073A /* GLESColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESColor.h; sourceTree = "<group>"; };
 		8106334E22D347A700A2073A /* GLESColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESColor.m; sourceTree = "<group>"; };
+		811A48A62421941400C2BE66 /* SphereAsset1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereAsset1.m; sourceTree = "<group>"; };
+		811A48A82421942000C2BE66 /* SphereAsset1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereAsset1.h; sourceTree = "<group>"; };
+		811A48B024219F9100C2BE66 /* GLES1Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1Normal.m; sourceTree = "<group>"; };
+		811A48B224219F9D00C2BE66 /* GLES1Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Normal.h; sourceTree = "<group>"; };
 		814B975A22D4A87C000CE7DA /* DepthBufferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthBufferObject.h; sourceTree = "<group>"; };
 		814B975C22D4A886000CE7DA /* DepthBufferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthBufferObject.m; sourceTree = "<group>"; };
 		814EA164240608840055F562 /* ProjectonTransfomMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectonTransfomMatrix.m; sourceTree = "<group>"; };
@@ -245,6 +253,8 @@
 			children = (
 				814EB07724185D6F00AC500C /* GLES1Angle.m */,
 				814EB07924185D7900AC500C /* GLES1Angle.h */,
+				811A48B024219F9100C2BE66 /* GLES1Normal.m */,
+				811A48B224219F9D00C2BE66 /* GLES1Normal.h */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -304,6 +314,8 @@
 				814EB07424185C8B00AC500C /* CircleAsset1.m */,
 				81C08CCD24065565004F496A /* CubeAsset1.h */,
 				81C08CCC24065565004F496A /* CubeAsset1.m */,
+				811A48A82421942000C2BE66 /* SphereAsset1.h */,
+				811A48A62421941400C2BE66 /* SphereAsset1.m */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 			files = (
 				8106333B22D302FD00A2073A /* BaseAsset.h in Headers */,
 				81C6E6522415BBBB00DB88F2 /* RectangleAsset1.h in Headers */,
+				811A48B324219F9D00C2BE66 /* GLES1Normal.h in Headers */,
 				8106333722D302FD00A2073A /* GLES1Renderer.h in Headers */,
 				81C08CD42406566A004F496A /* glu.h in Headers */,
 				814EA167240608840055F562 /* ProjectonTransfomMatrix.h in Headers */,
@@ -353,6 +366,7 @@
 				8106334F22D347A700A2073A /* GLESColor.h in Headers */,
 				814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */,
 				814EB07324185C7900AC500C /* CircleAsset1.h in Headers */,
+				811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +479,9 @@
 				8106334422D302FD00A2073A /* BaseBufferObject.m in Sources */,
 				819D809D22D440A70076832A /* Transform.m in Sources */,
 				814EB07524185C8B00AC500C /* CircleAsset1.m in Sources */,
+				811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */,
 				8106333922D302FD00A2073A /* BaseAsset.m in Sources */,
+				811A48A72421941400C2BE66 /* SphereAsset1.m in Sources */,
 				817394C522E156AF003B829B /* VertexArray.m in Sources */,
 				814EB07824185D6F00AC500C /* GLES1Angle.m in Sources */,
 				81AF396F241EFA8600E2136B /* Material.m in Sources */,

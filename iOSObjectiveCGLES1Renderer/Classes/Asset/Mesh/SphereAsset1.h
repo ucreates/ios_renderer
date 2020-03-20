@@ -7,10 +7,16 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Angle_h
-#define GLES1Angle_h
+#ifndef SphereAsset1_h
+#define SphereAsset1_h
 #import <Foundation/Foundation.h>
-@interface GLES1Angle : NSObject
-+ (float)toRadian:(float)degree;
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
+#import "BaseAsset.h"
+@interface SphereAsset1 : BaseAsset {
+    int _divideCount;
+    GLfloat _radius;
+}
+- (id)init:(GLfloat)radius divideCount:(int)divideCount color:(GLESColor*)color;
 @end
-#endif /* GLES1Angle_h */
+#endif /* SphereAsset1_h */
