@@ -73,6 +73,17 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount {
+    if (0 == uvsCount) {
+        return;
+    }
+    int memsize = uvsCount * sizeof(GLfloat);
+    self->_uvs = (GLfloat*)malloc(memsize);
+    for (int i = 0; i < uvsCount; i++) {
+        self->_uvs[i] = uvs[i];
+    }
+    return;
+}
 - (void)setRandomColor {
     for (int i = 0; i < self->_vertexColorCount; i++) {
         int color = rand() % 255;
@@ -94,5 +105,8 @@ static const int kVertexCountPerTriangle = 3;
 }
 - (GLfloat*)normals {
     return self->_normals;
+}
+- (GLfloat*)uvs {
+    return self->_uvs;
 }
 @end

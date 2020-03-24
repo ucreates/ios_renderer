@@ -111,6 +111,9 @@
 - (void)render:(BaseAsset*)asset {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    if (nil != asset.texture) {
+        glEnable(GL_TEXTURE_2D);
+    }
     if (0 < self.lights.count) {
         glEnable(GL_NORMALIZE);
         glEnable(GL_LIGHTING);
@@ -123,6 +126,9 @@
     }
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
+    if (nil != asset.texture) {
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
     if (0 < self.lights.count) {
         glEnableClientState(GL_NORMAL_ARRAY);
     }
@@ -132,6 +138,10 @@
     }
     glVertexPointer(asset.vertex.dimension, GL_FLOAT, 0, asset.vertex.verticies);
     glColorPointer(kRGBA, GL_FLOAT, 0, asset.vertex.colors);
+    if (nil != asset.texture) {
+        glTexCoordPointer(2, GL_FLOAT, 0, asset.vertex.uvs);
+        glBindTexture(GL_TEXTURE_2D, asset.texture.textureId);
+    }
     if (0 < self.lights.count) {
         glNormalPointer(GL_FLOAT, 0, asset.vertex.normals);
     }
@@ -166,6 +176,10 @@
             glDisable(GL_COLOR_MATERIAL);
         }
         glDisable(GL_LIGHTING);
+    }
+    if (nil != asset.texture) {
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+        glDisable(GL_TEXTURE_2D);
     }
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);

@@ -17,9 +17,13 @@
 - (id)init {
     self->transform = [[Transform alloc] init];
     self->_material = nil;
+    self->_texture = nil;
     return self;
 }
 - (void)create {
+    return;
+}
+- (void)create:(NSString*)texturePath {
     return;
 }
 - (void)dispose {
@@ -28,6 +32,9 @@
     }
     if (nil != self->_material) {
         [self->_material releaseBuffer];
+    }
+    if (nil != self->_texture) {
+        [self->_texture releaseBuffer];
     }
     return;
 }
@@ -43,5 +50,8 @@
 }
 - (Material*)material {
     return self->_material;
+}
+- (TextureAsset*)texture {
+    return self->_texture;
 }
 @end

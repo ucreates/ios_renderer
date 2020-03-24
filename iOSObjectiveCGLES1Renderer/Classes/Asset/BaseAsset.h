@@ -14,6 +14,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import "GLESColor.h"
 #import "Material.h"
+#import "TextureAsset.h"
 #import "Transform.h"
 #import "VertexArray.h"
 @interface BaseAsset : NSObject {
@@ -23,13 +24,16 @@
     VertexArray* _vertex;
     GLESColor* _color;
     Material* _material;
+    TextureAsset* _texture;
 }
 @property Transform* transform;
 @property(readonly) GLenum renderMode;
 @property(readonly) VertexArray* vertex;
 @property(readonly) Material* material;
+@property(readonly) TextureAsset* texture;
 - (id)init;
 - (void)create;
+- (void)create:(NSString*)texturePath;
 - (void)dispose;
 - (void)setMaterial:(Material*)material;
 @end

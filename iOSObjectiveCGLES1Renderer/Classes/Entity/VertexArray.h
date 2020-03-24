@@ -19,19 +19,21 @@
     GLfloat* _verticies;
     GLfloat* _colors;
     GLfloat* _normals;
+    GLfloat* _uvs;
 }
 @property(readonly) int dimension;
 @property(readonly) int count;
 @property(readonly) GLfloat* verticies;
 @property(readonly) GLfloat* colors;
 @property(readonly) GLfloat* normals;
-@property(readonly) GLushort* indicies;
+@property(readonly) GLfloat* uvs;
 - (id)init:(int)dimension;
 - (void)releaseBuffer;
 - (void)setVertexCount:(int)count;
 - (void)setVerticies:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
 - (void)setColors:(GLfloat*)vertexColors vertexColorsCount:(int)vertexColorsCount;
 - (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount;
+- (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount;
 - (void)setRandomColor;
 @end
 #endif /* VertexArray_h */
