@@ -24,7 +24,7 @@
 - (void)create {
     float x = 0.5f * self->_width;
     float y = 0.5f * self->_height;
-    GLfloat verticies[] = {
+    GLfloat vertices[] = {
         // left down
         -x,
         -y,
@@ -44,7 +44,7 @@
         -x,
         y,
     };
-    GLfloat vertexColors[] = {
+    GLfloat colors[] = {
         // left down
         self->_color.r,
         self->_color.g,
@@ -76,12 +76,100 @@
         self->_color.b,
         self->_color.a,
     };
-    int verticiesLength = sizeof(verticies) / sizeof(GLfloat);
-    int vertexColorsLength = sizeof(vertexColors) / sizeof(GLfloat);
-    int vertexCount = verticiesLength / self.vertex.dimension;
+    int verticesLength = sizeof(vertices) / sizeof(GLfloat);
+    int colorsLength = sizeof(colors) / sizeof(GLfloat);
+    int vertexCount = verticesLength / self.vertex.dimension;
     [self->_vertex setVertexCount:vertexCount];
-    [self->_vertex setVerticies:verticies verticiesCount:verticiesLength];
-    [self->_vertex setColors:vertexColors vertexColorsCount:vertexColorsLength];
+    [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
+    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    return;
+}
+- (void)create:(NSString*)texturePath {
+    self->_texture = [[TextureAsset alloc] init];
+    [self->_texture load:texturePath];
+    GLfloat vratio = 1.0f - self->_texture.uvRatio.height;
+    float x = 0.5f * self->_width;
+    float y = 0.5f * self->_height;
+    GLfloat vertices[] = {
+        // left down
+        -x,
+        -y,
+        // right down
+        x,
+        -y,
+        // left top
+        -x,
+        y,
+        // right down
+        x,
+        -y,
+        // right top
+        x,
+        y,
+        // left top
+        -x,
+        y,
+    };
+    GLfloat colors[] = {
+        // left down
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // right down
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // left top
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // right down
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // right top
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // left top
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+    };
+    GLfloat uvs[] = {
+        // left down
+        0.0f,
+        1.0f,
+        // right down
+        1.0f * self->_texture.uvRatio.width,
+        1.0f,
+        // left up
+        0.0f,
+        0.0f + vratio,
+        // right down
+        1.0f * self->_texture.uvRatio.width,
+        1.0f,
+        // right up
+        1.0f * self->_texture.uvRatio.width,
+        0.0f + vratio,
+        // left up
+        0.0f,
+        0.0f + vratio,
+    };
+    int verticesLength = sizeof(vertices) / sizeof(GLfloat);
+    int colorsLength = sizeof(colors) / sizeof(GLfloat);
+    int uvsLength = sizeof(uvs) / sizeof(GLfloat);
+    int vertexCount = verticesLength / self.vertex.dimension;
+    [self->_vertex setVertexCount:vertexCount];
+    [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
+    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setUVs:uvs uvsCount:uvsLength];
     return;
 }
 - (GLenum)renderType {
