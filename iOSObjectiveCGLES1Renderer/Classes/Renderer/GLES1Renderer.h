@@ -15,13 +15,16 @@
 #import <OpenGLES/ES1/glext.h>
 #import "BaseAsset.h"
 #import "GLES1Camera.h"
+#import "GLES1Fog.h"
 #import "GLES1Light.h"
 #import "GLESColor.h"
 #import "Viewport.h"
 static const int kDimension2D = 2;
 static const int kDimension3D = 3;
 static const int kRGBA = 4;
-@interface GLES1Renderer : NSObject
+@interface GLES1Renderer : NSObject {
+    GLES1Fog* _fog;
+}
 @property(readonly) EAGLContext* context;
 @property(readonly) Viewport* viewport;
 @property(readonly) GLES1Camera* camera;
@@ -34,5 +37,6 @@ static const int kRGBA = 4;
 - (void)render:(BaseAsset*)asset;
 - (void)present;
 - (void)addLight:(GLES1Light*)light;
+- (void)setFog:(GLES1Fog*)fog;
 @end
 #endif /* GLES1Renderer_h */

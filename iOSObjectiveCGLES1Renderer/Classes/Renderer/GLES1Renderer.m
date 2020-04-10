@@ -111,6 +111,9 @@
 - (void)render:(BaseAsset*)asset {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    if (nil != self->_fog) {
+        glEnable(GL_FOG);
+    }
     if (nil != asset.texture) {
         glEnable(GL_TEXTURE_2D);
     }
@@ -133,6 +136,9 @@
         glEnableClientState(GL_NORMAL_ARRAY);
     }
     glCullFace(GL_BACK);
+    if (nil != self->_fog) {
+        [self->_fog mist];
+    }
     for (GLES1Light* light in self.lights) {
         [light illuminate];
     }
@@ -181,6 +187,9 @@
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glDisable(GL_TEXTURE_2D);
     }
+    if (nil != self->_fog) {
+        glDisable(GL_FOG);
+    }
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
     return;
@@ -193,6 +202,10 @@
         return;
     }
     [self.lights addObject:light];
+    return;
+}
+- (void)setFog:(GLES1Fog*)fog {
+    self->_fog = fog;
     return;
 }
 @end
