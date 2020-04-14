@@ -109,7 +109,11 @@
     return;
 }
 - (void)render:(BaseAsset*)asset {
-    glEnable(GL_DEPTH_TEST);
+    if (nil == asset.blend) {
+        glEnable(GL_DEPTH_TEST);
+    } else {
+        glEnable(GL_BLEND);
+    }
     glEnable(GL_CULL_FACE);
     if (nil != self->_fog) {
         glEnable(GL_FOG);
@@ -141,6 +145,9 @@
     }
     for (GLES1Light* light in self.lights) {
         [light illuminate];
+    }
+    if (nil != asset.blend) {
+        glBlendFunc(asset.blend.source, asset.blend.destination);
     }
     glVertexPointer(asset.vertex.dimension, GL_FLOAT, 0, asset.vertex.verticies);
     glColorPointer(kRGBA, GL_FLOAT, 0, asset.vertex.colors);
@@ -191,7 +198,11 @@
         glDisable(GL_FOG);
     }
     glDisable(GL_CULL_FACE);
-    glDisable(GL_DEPTH_TEST);
+    if (nil == asset.blend) {
+        glDisable(GL_DEPTH_TEST);
+    } else {
+        glDisable(GL_BLEND);
+    }
     return;
 }
 - (void)present {

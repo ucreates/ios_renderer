@@ -33,4 +33,22 @@
 + (GLESColor*)black {
     return [[GLESColor alloc] init:0.0f g:0.0f b:0.0f a:1.0f];
 }
++ (GLESColor*)red {
+    return [[GLESColor alloc] init:1.0f g:0.0f b:0.0f a:1.0f];
+}
++ (GLESColor*)red:(GLfloat)alpha {
+    return [[GLESColor alloc] init:1.0f g:0.0f b:0.0f a:alpha];
+}
++ (GLESColor*)green {
+    return [[GLESColor alloc] init:0.0f g:1.0f b:0.0f a:1.0f];
+}
++ (GLESColor*)green:(GLfloat)alpha {
+    return [[GLESColor alloc] init:0.0f g:1.0f b:0.0f a:alpha];
+}
++ (GLESColor*)blue {
+    return [[GLESColor alloc] init:0.0f g:0.0f b:1.0f a:1.0f];
+}
++ (GLESColor*)blue:(GLfloat)alpha {
+    return [[GLESColor alloc] init:0.0f g:0.0f b:1.0f a:alpha];
+}
 @end

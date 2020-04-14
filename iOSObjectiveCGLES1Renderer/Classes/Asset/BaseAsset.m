@@ -18,6 +18,7 @@
     self->transform = [[Transform alloc] init];
     self->_material = nil;
     self->_texture = nil;
+    self->_blend = nil;
     return self;
 }
 - (void)create {
@@ -42,6 +43,10 @@
     self->_material = material;
     return;
 }
+- (void)setBlend:(GLESBlend*)blend {
+    self->_blend = blend;
+    return;
+}
 - (GLenum)renderMode {
     return GL_TRIANGLES;
 }
@@ -53,5 +58,8 @@
 }
 - (TextureAsset*)texture {
     return self->_texture;
+}
+- (GLESBlend*)blend {
+    return self->_blend;
 }
 @end

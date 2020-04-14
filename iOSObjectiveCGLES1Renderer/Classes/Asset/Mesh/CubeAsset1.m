@@ -735,4 +735,3 @@
     return self->_vertex;
 }
 @end
-

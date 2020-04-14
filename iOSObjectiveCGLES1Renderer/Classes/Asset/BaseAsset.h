@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "GLESBlend.h"
 #import "GLESColor.h"
 #import "Material.h"
 #import "TextureAsset.h"
@@ -23,6 +24,7 @@
     GLfloat _depth;
     VertexArray* _vertex;
     GLESColor* _color;
+    GLESBlend* _blend;
     Material* _material;
     TextureAsset* _texture;
 }
@@ -31,10 +33,12 @@
 @property(readonly) VertexArray* vertex;
 @property(readonly) Material* material;
 @property(readonly) TextureAsset* texture;
+@property(readonly) GLESBlend* blend;
 - (id)init;
 - (void)create;
 - (void)create:(NSString*)texturePath;
 - (void)dispose;
 - (void)setMaterial:(Material*)material;
+- (void)setBlend:(GLESBlend*)blend;
 @end
 #endif /* BaseAsset_h */

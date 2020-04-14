@@ -19,5 +19,11 @@
 - (id)init:(GLfloat)r g:(GLfloat)g b:(GLfloat)b a:(GLfloat)a;
 + (GLESColor*)white;
 + (GLESColor*)black;
++ (GLESColor*)red;
++ (GLESColor*)red:(GLfloat)alpha;
++ (GLESColor*)green;
++ (GLESColor*)green:(GLfloat)alpha;
++ (GLESColor*)blue;
++ (GLESColor*)blue:(GLfloat)alpha;
 @end
 #endif /* GLESColor_h */
