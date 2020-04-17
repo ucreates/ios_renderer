@@ -17,10 +17,14 @@
     GLuint _textureId;
     CGSize _uvRatio;
     CGSize _size;
+    GLenum _alphaComparisonFunction;
+    GLclampf _alphaReferenceValue;
 }
 @property(readonly) GLuint textureId;
 @property(readonly) CGSize size;
 @property(readonly) CGSize uvRatio;
+@property(readonly) GLenum alphaComparisonFunction;
+@property(readonly) GLclampf alphaReferenceValue;
 - (id)init;
 - (void)releaseBuffer;
 - (void)load:(NSString*)path;

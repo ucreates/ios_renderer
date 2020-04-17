@@ -91,6 +91,12 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)setAlpha:(GLfloat)alpha {
+    for (int i = 3; i < self->_vertexColorCount; i += 4) {
+        self->_colors[i] = alpha;
+    }
+    return;
+}
 - (int)dimension {
     return self->_dimension;
 }
@@ -110,3 +116,4 @@ static const int kVertexCountPerTriangle = 3;
     return self->_uvs;
 }
 @end
+

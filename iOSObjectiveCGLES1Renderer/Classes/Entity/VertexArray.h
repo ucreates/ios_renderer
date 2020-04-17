@@ -35,5 +35,6 @@
 - (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount;
 - (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount;
 - (void)setRandomColor;
+- (void)setAlpha:(GLfloat)alpha;
 @end
 #endif /* VertexArray_h */

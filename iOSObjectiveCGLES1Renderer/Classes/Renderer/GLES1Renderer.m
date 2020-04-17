@@ -120,6 +120,9 @@
     }
     if (nil != asset.texture) {
         glEnable(GL_TEXTURE_2D);
+        if (nil != asset.blend) {
+            glEnable(GL_ALPHA_TEST);
+        }
     }
     if (0 < self.lights.count) {
         glEnable(GL_NORMALIZE);
@@ -154,6 +157,9 @@
     if (nil != asset.texture) {
         glTexCoordPointer(2, GL_FLOAT, 0, asset.vertex.uvs);
         glBindTexture(GL_TEXTURE_2D, asset.texture.textureId);
+        if (nil != asset.blend) {
+            glAlphaFunc(asset.texture.alphaComparisonFunction, asset.texture.alphaReferenceValue);
+        }
     }
     if (0 < self.lights.count) {
         glNormalPointer(GL_FLOAT, 0, asset.vertex.normals);
@@ -193,6 +199,9 @@
     if (nil != asset.texture) {
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glDisable(GL_TEXTURE_2D);
+        if (nil != asset.blend) {
+            glDisable(GL_ALPHA_TEST);
+        }
     }
     if (nil != self->_fog) {
         glDisable(GL_FOG);

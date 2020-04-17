@@ -14,6 +14,8 @@
 #import "GLES1Renderer.h"
 @implementation TextureAsset
 - (id)init {
+    self->_alphaComparisonFunction = GL_GREATER;
+    self->_alphaReferenceValue = 0.1f;
     return self;
 }
 - (void)load:(NSString*)path {
@@ -55,6 +57,14 @@
     glDeleteTextures(1, &self->_textureId);
     return;
 }
+- (void)setAlphaComparisonFunction:(GLenum)func {
+    self->_alphaComparisonFunction = func;
+    return;
+}
+- (void)setAlphaReferenceValue:(GLclampf)value {
+    self->_alphaReferenceValue = value;
+    return;
+}
 - (GLuint)textureId {
     return self->_textureId;
 }
@@ -63,5 +73,11 @@
 }
 - (CGSize)uvRatio {
     return self->_uvRatio;
+}
+- (GLenum)alphaComparisonFunction {
+    return self->_alphaComparisonFunction;
+}
+- (GLclampf)alphaReferenceValue {
+    return self->_alphaReferenceValue;
 }
 @end
