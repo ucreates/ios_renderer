@@ -19,6 +19,7 @@
     self->_material = nil;
     self->_texture = nil;
     self->_blend = nil;
+    self->_shader = nil;
     return self;
 }
 - (void)create {
@@ -47,6 +48,10 @@
     self->_blend = blend;
     return;
 }
+- (void)setShader:(GLES1ShaderAsset*)shader {
+    self->_shader = shader;
+    return;
+}
 - (GLenum)renderMode {
     return GL_TRIANGLES;
 }
@@ -61,5 +66,8 @@
 }
 - (GLESBlend*)blend {
     return self->_blend;
+}
+- (GLES1ShaderAsset*)shader {
+    return self->_shader;
 }
 @end

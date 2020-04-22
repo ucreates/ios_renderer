@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "GLES1ShaderAsset.h"
 #import "GLESBlend.h"
 #import "GLESColor.h"
 #import "Material.h"
@@ -25,6 +26,7 @@
     VertexArray* _vertex;
     GLESColor* _color;
     GLESBlend* _blend;
+    GLES1ShaderAsset* _shader;
     Material* _material;
     TextureAsset* _texture;
 }
@@ -34,11 +36,13 @@
 @property(readonly) Material* material;
 @property(readonly) TextureAsset* texture;
 @property(readonly) GLESBlend* blend;
+@property(readonly) GLES1ShaderAsset* shader;
 - (id)init;
 - (void)create;
 - (void)create:(NSString*)texturePath;
 - (void)dispose;
 - (void)setMaterial:(Material*)material;
 - (void)setBlend:(GLESBlend*)blend;
+- (void)setShader:(GLES1ShaderAsset*)shader;
 @end
 #endif /* BaseAsset_h */

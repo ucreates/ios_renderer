@@ -116,4 +116,3 @@ static const int kVertexCountPerTriangle = 3;
     return self->_uvs;
 }
 @end
-

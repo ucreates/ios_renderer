@@ -29,6 +29,8 @@
 		811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48A82421942000C2BE66 /* SphereAsset1.h */; };
 		811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = 811A48B024219F9100C2BE66 /* GLES1Normal.m */; };
 		811A48B324219F9D00C2BE66 /* GLES1Normal.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48B224219F9D00C2BE66 /* GLES1Normal.h */; };
+		811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */; };
+		811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 811ADB01244D459700745E1A /* GLES1ShaderAsset.m */; };
 		814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 814B975A22D4A87C000CE7DA /* DepthBufferObject.h */; };
 		814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B975C22D4A886000CE7DA /* DepthBufferObject.m */; };
 		814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EA164240608840055F562 /* ProjectonTransfomMatrix.m */; };
@@ -100,6 +102,8 @@
 		811A48A82421942000C2BE66 /* SphereAsset1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereAsset1.h; sourceTree = "<group>"; };
 		811A48B024219F9100C2BE66 /* GLES1Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1Normal.m; sourceTree = "<group>"; };
 		811A48B224219F9D00C2BE66 /* GLES1Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Normal.h; sourceTree = "<group>"; };
+		811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1ShaderAsset.h; sourceTree = "<group>"; };
+		811ADB01244D459700745E1A /* GLES1ShaderAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1ShaderAsset.m; sourceTree = "<group>"; };
 		814B975A22D4A87C000CE7DA /* DepthBufferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthBufferObject.h; sourceTree = "<group>"; };
 		814B975C22D4A886000CE7DA /* DepthBufferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthBufferObject.m; sourceTree = "<group>"; };
 		814EA164240608840055F562 /* ProjectonTransfomMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectonTransfomMatrix.m; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				81AF396E241EFA8600E2136B /* Material.m */,
 				8192E82B242679E100EB7AAE /* TextureAsset.h */,
 				8192E82D242679F500EB7AAE /* TextureAsset.m */,
+				811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */,
+				811ADB01244D459700745E1A /* GLES1ShaderAsset.m */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				817394C622E156AF003B829B /* VertexArray.h in Headers */,
 				819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */,
 				8106330C22D3029B00A2073A /* iOSObjectiveCGLES1Renderer.h in Headers */,
+				811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
 				81C08CCF24065565004F496A /* CubeAsset1.h in Headers */,
@@ -495,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
 				8106334322D302FD00A2073A /* FrameBufferObject.m in Sources */,
 				8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */,

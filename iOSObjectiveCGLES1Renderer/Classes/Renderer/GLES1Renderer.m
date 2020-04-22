@@ -179,6 +179,9 @@
     glRotatef(rx, 1.0f, 0.0f, 0.0f);
     glRotatef(ry, 0.0f, 1.0f, 0.0f);
     glRotatef(rz, 0.0f, 0.0f, 1.0f);
+    if (nil != asset.shader) {
+        [asset.shader shade];
+    }
     if (nil != asset.material) {
         [asset.material reflect];
     }
