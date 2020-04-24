@@ -39,6 +39,12 @@
 		814EB07324185C7900AC500C /* CircleAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 814EB07224185C7900AC500C /* CircleAsset1.h */; };
 		814EB07524185C8B00AC500C /* CircleAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EB07424185C8B00AC500C /* CircleAsset1.m */; };
 		814EB07824185D6F00AC500C /* GLES1Angle.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EB07724185D6F00AC500C /* GLES1Angle.m */; };
+		81655BFB24501C94006B370B /* WipeAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 81655BF924501C93006B370B /* WipeAsset1.h */; };
+		81655BFC24501C94006B370B /* WipeAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 81655BFA24501C93006B370B /* WipeAsset1.m */; };
+		81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 81655BFD24501CEE006B370B /* BaseWipeAsset.h */; };
+		81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 81655BFE24501CEE006B370B /* BaseWipeAsset.m */; };
+		816662F9245006B400C5993C /* StencilBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 816662F7245006B400C5993C /* StencilBufferObject.h */; };
+		816662FA245006B400C5993C /* StencilBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816662F8245006B400C5993C /* StencilBufferObject.m */; };
 		817394C522E156AF003B829B /* VertexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 817394C322E156AF003B829B /* VertexArray.m */; };
 		817394C622E156AF003B829B /* VertexArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 817394C422E156AF003B829B /* VertexArray.h */; };
 		818755E823C319F8004BF64B /* TriangleAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 818755E623C319F8004BF64B /* TriangleAsset1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,6 +121,12 @@
 		814EB07924185D7900AC500C /* GLES1Angle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Angle.h; sourceTree = "<group>"; };
 		814FAF1822CF13EC006F9494 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		814FAF1D22CF176C006F9494 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		81655BF924501C93006B370B /* WipeAsset1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WipeAsset1.h; sourceTree = "<group>"; };
+		81655BFA24501C93006B370B /* WipeAsset1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WipeAsset1.m; sourceTree = "<group>"; };
+		81655BFD24501CEE006B370B /* BaseWipeAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWipeAsset.h; sourceTree = "<group>"; };
+		81655BFE24501CEE006B370B /* BaseWipeAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWipeAsset.m; sourceTree = "<group>"; };
+		816662F7245006B400C5993C /* StencilBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StencilBufferObject.h; sourceTree = "<group>"; };
+		816662F8245006B400C5993C /* StencilBufferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StencilBufferObject.m; sourceTree = "<group>"; };
 		817394C322E156AF003B829B /* VertexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VertexArray.m; sourceTree = "<group>"; };
 		817394C422E156AF003B829B /* VertexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
 		818755E623C319F8004BF64B /* TriangleAsset1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset1.h; sourceTree = "<group>"; };
@@ -223,6 +235,7 @@
 			children = (
 				81C08CCB24065565004F496A /* Mesh */,
 				818755E523C319F8004BF64B /* Polygon */,
+				81655BF824501C93006B370B /* Wipe */,
 				8106332222D302FD00A2073A /* BaseAsset.h */,
 				8106332022D302FD00A2073A /* BaseAsset.m */,
 				81AF3970241EFA9100E2136B /* Material.h */,
@@ -270,6 +283,8 @@
 				8106332C22D302FD00A2073A /* ColorBufferObject.m */,
 				814B975A22D4A87C000CE7DA /* DepthBufferObject.h */,
 				814B975C22D4A886000CE7DA /* DepthBufferObject.m */,
+				816662F7245006B400C5993C /* StencilBufferObject.h */,
+				816662F8245006B400C5993C /* StencilBufferObject.m */,
 			);
 			path = BufferObject;
 			sourceTree = "<group>";
@@ -313,6 +328,17 @@
 				814FAF1822CF13EC006F9494 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81655BF824501C93006B370B /* Wipe */ = {
+			isa = PBXGroup;
+			children = (
+				81655BFD24501CEE006B370B /* BaseWipeAsset.h */,
+				81655BFE24501CEE006B370B /* BaseWipeAsset.m */,
+				81655BF924501C93006B370B /* WipeAsset1.h */,
+				81655BFA24501C93006B370B /* WipeAsset1.m */,
+			);
+			path = Wipe;
 			sourceTree = "<group>";
 		};
 		818755E523C319F8004BF64B /* Polygon */ = {
@@ -389,15 +415,18 @@
 				819D809E22D440A70076832A /* Transform.h in Headers */,
 				8106333E22D302FD00A2073A /* Viewport.h in Headers */,
 				81D038C12443E77A002367AB /* GLESBlend.h in Headers */,
+				816662F9245006B400C5993C /* StencilBufferObject.h in Headers */,
 				817394C622E156AF003B829B /* VertexArray.h in Headers */,
 				819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */,
 				8106330C22D3029B00A2073A /* iOSObjectiveCGLES1Renderer.h in Headers */,
 				811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
+				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
 				81C08CCF24065565004F496A /* CubeAsset1.h in Headers */,
 				8106334522D302FD00A2073A /* ColorBufferObject.h in Headers */,
 				8106334F22D347A700A2073A /* GLESColor.h in Headers */,
+				81655BFB24501C94006B370B /* WipeAsset1.h in Headers */,
 				8192E83224267D0700EB7AAE /* GLES1Exponentiation.h in Headers */,
 				814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */,
 				814EB07324185C7900AC500C /* CircleAsset1.h in Headers */,
@@ -504,6 +533,7 @@
 			files = (
 				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
+				81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */,
 				8106334322D302FD00A2073A /* FrameBufferObject.m in Sources */,
 				8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */,
 				814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */,
@@ -515,6 +545,7 @@
 				81D4EC042410DC5E00E7B3F5 /* GLES1Light.m in Sources */,
 				8106334422D302FD00A2073A /* BaseBufferObject.m in Sources */,
 				819D809D22D440A70076832A /* Transform.m in Sources */,
+				81655BFC24501C94006B370B /* WipeAsset1.m in Sources */,
 				814EB07524185C8B00AC500C /* CircleAsset1.m in Sources */,
 				81B76E1D243EB15900ADD9A6 /* GLES1Fog.m in Sources */,
 				811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */,
@@ -527,6 +558,7 @@
 				818755E923C319F8004BF64B /* TriangleAsset1.m in Sources */,
 				8106333422D302FD00A2073A /* ModelViewTransformMatrix.m in Sources */,
 				819D80A822D450080076832A /* GLES1Camera.m in Sources */,
+				816662FA245006B400C5993C /* StencilBufferObject.m in Sources */,
 				8192E83024267CFB00EB7AAE /* GLES1Exponentiation.m in Sources */,
 				81D038BF2443E76E002367AB /* GLESBlend.m in Sources */,
 				81C08CCE24065565004F496A /* CubeAsset1.m in Sources */,

@@ -26,8 +26,9 @@
     GLfloat g = camera.clearColor.g;
     GLfloat b = camera.clearColor.b;
     GLfloat a = camera.clearColor.a;
+    glClearStencil(0);
     glClearColor(r, g, b, a);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     return;
 }
 - (void)setScreenSize:(GLuint)width height:(GLint)height {

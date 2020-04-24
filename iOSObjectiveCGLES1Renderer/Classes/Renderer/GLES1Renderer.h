@@ -14,6 +14,7 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "BaseAsset.h"
+#import "BaseWipeAsset.h"
 #import "GLES1Camera.h"
 #import "GLES1Fog.h"
 #import "GLES1Light.h"
@@ -22,6 +23,8 @@
 static const int kDimension2D = 2;
 static const int kDimension3D = 3;
 static const int kRGBA = 4;
+static const int kWipeIn = 1;
+static const int kWipeOut = 2;
 @interface GLES1Renderer : NSObject {
     GLES1Fog* _fog;
 }
@@ -31,9 +34,11 @@ static const int kRGBA = 4;
 - (id)init;
 - (void)create;
 - (void)bind:(CAEAGLLayer*)layer width:(GLint)width height:(GLint)height;
+- (void)bind:(CAEAGLLayer*)layer width:(GLint)width height:(GLint)height attachmentType:(GLenum)attachmentType;
 - (void)delete;
 - (void)rebind:(CAEAGLLayer*)layer;
 - (void)transform:(int)dimension;
+- (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime;
 - (void)render:(BaseAsset*)asset;
 - (void)present;
 - (void)addLight:(GLES1Light*)light;

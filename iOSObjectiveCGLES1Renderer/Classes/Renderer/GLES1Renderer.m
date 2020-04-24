@@ -14,10 +14,12 @@
 #import "FrameBufferObject.h"
 #import "ModelViewTransformMatrix.h"
 #import "ProjectonTransfomMatrix.h"
+#import "StencilBufferObject.h"
 @interface GLES1Renderer ()
 @property FrameBufferObject* fbo;
 @property ColorBufferObject* cbo;
 @property DepthBufferObject* dbo;
+@property StencilBufferObject* sbo;
 @property NSMutableArray<GLES1Light*>* lights;
 @property ProjectonTransfomMatrix* projectonTransfomMatrix;
 @property ModelViewTransformMatrix* modelViewTransfomMatrix;
@@ -27,6 +29,7 @@
 @synthesize fbo;
 @synthesize cbo;
 @synthesize dbo;
+@synthesize sbo;
 @synthesize lights;
 @synthesize projectonTransfomMatrix;
 @synthesize modelViewTransfomMatrix;
@@ -44,9 +47,17 @@
     return;
 }
 - (void)bind:(CAEAGLLayer*)layer width:(GLint)width height:(GLint)height {
+    [self bind:layer width:width height:height attachmentType:GL_DEPTH_ATTACHMENT_OES];
+    return;
+}
+- (void)bind:(CAEAGLLayer*)layer width:(GLint)width height:(GLint)height attachmentType:(GLenum)attachmentType {
     self->fbo = [[FrameBufferObject alloc] init];
     self->cbo = [[ColorBufferObject alloc] init];
-    self->dbo = [[DepthBufferObject alloc] init];
+    if (GL_DEPTH_ATTACHMENT_OES == attachmentType) {
+        self->dbo = [[DepthBufferObject alloc] init];
+    } else {
+        self->sbo = [[StencilBufferObject alloc] init];
+    }
     [self->fbo allocateBuffer];
     [self->cbo allocateBuffer];
     BOOL ret = [self.context renderbufferStorage:GL_RENDERBUFFER_OES fromDrawable:layer];
@@ -54,7 +65,11 @@
         NSLog(@"faild renderbufferStorage");
         return;
     }
-    [self->dbo allocateBuffer:width height:height];
+    if (GL_DEPTH_ATTACHMENT_OES == attachmentType) {
+        [self->dbo allocateBuffer:width height:height];
+    } else {
+        [self->sbo allocateBuffer:width height:height];
+    }
     GLenum status = glCheckFramebufferStatusOES(GL_FRAMEBUFFER_OES);
     if (GL_FRAMEBUFFER_COMPLETE_OES != status) {
         NSLog(@"glCheckFramebufferStatusOES::%x", status);
@@ -68,7 +83,12 @@
     }
     [self->fbo releaseBuffer];
     [self->cbo releaseBuffer];
-    [self->dbo releaseBuffer];
+    if (nil != self->dbo) {
+        [self->dbo releaseBuffer];
+    }
+    if (nil != self->sbo) {
+        [self->sbo releaseBuffer];
+    }
     return;
 }
 - (void)rebind:(CAEAGLLayer*)layer {
@@ -77,7 +97,12 @@
     GLint height;
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &width);
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &height);
-    [self->dbo rebind:width height:height];
+    if (nil != self->dbo) {
+        [self->dbo rebind:width height:height];
+    }
+    if (nil != self->sbo) {
+        [self->sbo rebind:width height:height];
+    }
     [self->_viewport setScreenSize:width height:height];
     return;
 }
@@ -108,11 +133,47 @@
     }
     return;
 }
+- (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime {
+    glEnable(GL_STENCIL_TEST);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glStencilFunc(GL_ALWAYS, 1, 0xFF);
+    glStencilOp(GL_REPLACE, GL_REPLACE, GL_REPLACE);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glVertexPointer(asset.vertex.dimension, GL_FLOAT, 0, asset.vertex.verticies);
+    glColorPointer(kRGBA, GL_FLOAT, 0, asset.vertex.colors);
+    GLfloat scale = 1.0f;
+    if (kWipeIn == wipeType) {
+        scale = [asset wipeIn:delta totalTime:totalTime];
+    } else {
+        scale = [asset wipeOut:delta totalTime:totalTime];
+    }
+    glPushMatrix();
+    glTranslatef(0.0, 0.0, 0.0);
+    glScalef(scale, scale, scale);
+    glDepthMask(GL_FALSE);
+    glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+    glDrawArrays(GL_TRIANGLES, 0, asset.vertex.count);
+    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+    glDepthMask(GL_TRUE);
+    glPopMatrix();
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+    glStencilFunc(GL_EQUAL, 1, 0xFF);
+    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
+    glDisable(GL_CULL_FACE);
+    glDisable(GL_STENCIL_TEST);
+    return;
+}
 - (void)render:(BaseAsset*)asset {
     if (nil == asset.blend) {
         glEnable(GL_DEPTH_TEST);
     } else {
         glEnable(GL_BLEND);
+    }
+    if (nil != self->sbo) {
+        glEnable(GL_STENCIL_TEST);
     }
     glEnable(GL_CULL_FACE);
     if (nil != self->_fog) {
@@ -210,6 +271,9 @@
         glDisable(GL_FOG);
     }
     glDisable(GL_CULL_FACE);
+    if (nil != self->sbo) {
+        glDisable(GL_STENCIL_TEST);
+    }
     if (nil == asset.blend) {
         glDisable(GL_DEPTH_TEST);
     } else {

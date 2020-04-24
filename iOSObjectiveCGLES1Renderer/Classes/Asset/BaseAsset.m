@@ -56,7 +56,7 @@
     return GL_TRIANGLES;
 }
 - (VertexArray*)vertex {
-    return nil;
+    return self->_vertex;
 }
 - (Material*)material {
     return self->_material;
