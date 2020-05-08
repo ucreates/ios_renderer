@@ -31,9 +31,13 @@
 - (void)releaseBuffer;
 - (void)setVertexCount:(int)count;
 - (void)setVerticies:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
+- (void)setVerticies:(NSMutableArray*)verticies;
 - (void)setColors:(GLfloat*)vertexColors vertexColorsCount:(int)vertexColorsCount;
+- (void)setColors:(NSMutableArray*)colors;
 - (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount;
+- (void)setNormals:(NSMutableArray*)normals;
 - (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount;
+- (void)setUVs:(NSMutableArray*)uvs;
 - (void)setRandomColor;
 - (void)setAlpha:(GLfloat)alpha;
 @end

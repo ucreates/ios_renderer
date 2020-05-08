@@ -184,6 +184,11 @@
         if (nil != asset.blend) {
             glEnable(GL_ALPHA_TEST);
         }
+    } else if (nil != asset.material && NO != asset.material.hasTexture) {
+        [asset.material enable];
+        if (nil != asset.blend) {
+            glEnable(GL_ALPHA_TEST);
+        }
     }
     if (0 < self.lights.count) {
         glEnable(GL_NORMALIZE);
@@ -204,9 +209,6 @@
         glEnableClientState(GL_NORMAL_ARRAY);
     }
     glCullFace(GL_BACK);
-    if (nil != self->_fog) {
-        [self->_fog mist];
-    }
     for (GLES1Light* light in self.lights) {
         [light illuminate];
     }
@@ -221,6 +223,9 @@
         if (nil != asset.blend) {
             glAlphaFunc(asset.texture.alphaComparisonFunction, asset.texture.alphaReferenceValue);
         }
+    }
+    if (nil != asset.material) {
+        [asset.material setUVs:asset.vertex.uvs];
     }
     if (0 < self.lights.count) {
         glNormalPointer(GL_FLOAT, 0, asset.vertex.normals);
@@ -240,6 +245,9 @@
     glRotatef(rx, 1.0f, 0.0f, 0.0f);
     glRotatef(ry, 0.0f, 1.0f, 0.0f);
     glRotatef(rz, 0.0f, 0.0f, 1.0f);
+    if (nil != self->_fog) {
+        [self->_fog mist];
+    }
     if (nil != asset.shader) {
         [asset.shader shade];
     }
@@ -263,6 +271,11 @@
     if (nil != asset.texture) {
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glDisable(GL_TEXTURE_2D);
+        if (nil != asset.blend) {
+            glDisable(GL_ALPHA_TEST);
+        }
+    } else if (nil != asset.material && NO != asset.material.hasTexture) {
+        [asset.material disable];
         if (nil != asset.blend) {
             glDisable(GL_ALPHA_TEST);
         }

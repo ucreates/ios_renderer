@@ -50,6 +50,19 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)setVerticies:(NSMutableArray*)verticies {
+    if (0 == verticies.count) {
+        return;
+    }
+    int idx = 0;
+    int memsize = (int)verticies.count * sizeof(GLfloat);
+    self->_verticies = (GLfloat*)malloc(memsize);
+    for (NSObject* vertex in verticies) {
+        self->_verticies[idx] = [(NSString*)vertex floatValue];
+        idx++;
+    }
+    return;
+}
 - (void)setColors:(GLfloat*)vertexColors vertexColorsCount:(int)vertexColorsCount {
     if (0 == vertexColorsCount) {
         return;
@@ -60,6 +73,20 @@ static const int kVertexCountPerTriangle = 3;
         self->_colors[i] = vertexColors[i];
     }
     self->_vertexColorCount = vertexColorsCount;
+    return;
+}
+- (void)setColors:(NSMutableArray*)colors {
+    if (0 == colors.count) {
+        return;
+    }
+    int idx = 0;
+    int memsize = (int)colors.count * sizeof(GLfloat);
+    self->_colors = (GLfloat*)malloc(memsize);
+    for (NSObject* color in colors) {
+        self->_colors[idx] = [(NSString*)color floatValue];
+        idx++;
+    }
+    self->_vertexColorCount = (int)colors.count;
     return;
 }
 - (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount {
@@ -73,6 +100,19 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)setNormals:(NSMutableArray*)normals {
+    if (0 == normals.count) {
+        return;
+    }
+    int idx = 0;
+    int memsize = (int)normals.count * sizeof(GLfloat);
+    self->_normals = (GLfloat*)malloc(memsize);
+    for (NSObject* normal in normals) {
+        self->_normals[idx] = [(NSString*)normal floatValue];
+        idx++;
+    }
+    return;
+}
 - (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount {
     if (0 == uvsCount) {
         return;
@@ -81,6 +121,19 @@ static const int kVertexCountPerTriangle = 3;
     self->_uvs = (GLfloat*)malloc(memsize);
     for (int i = 0; i < uvsCount; i++) {
         self->_uvs[i] = uvs[i];
+    }
+    return;
+}
+- (void)setUVs:(NSMutableArray*)uvs {
+    if (0 == uvs.count) {
+        return;
+    }
+    int idx = 0;
+    int memsize = (int)uvs.count * sizeof(GLfloat);
+    self->_uvs = (GLfloat*)malloc(memsize);
+    for (NSObject* uv in uvs) {
+        self->_uvs[idx] = [(NSString*)uv floatValue];
+        idx++;
     }
     return;
 }

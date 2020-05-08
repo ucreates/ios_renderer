@@ -41,6 +41,7 @@
 - (void)create;
 - (void)create:(NSString*)texturePath;
 - (void)dispose;
+- (void)setVertex:(VertexArray*)vertex;
 - (void)setMaterial:(Material*)material;
 - (void)setBlend:(GLESBlend*)blend;
 - (void)setShader:(GLES1ShaderAsset*)shader;

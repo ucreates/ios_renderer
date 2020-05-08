@@ -7,22 +7,17 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef Material_h
-#define Material_h
-#import <Foundation/Foundation.h>
+#ifndef ObjAsset_h
+#define ObjAsset_h
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
-#import "GLESColor.h"
-@interface Material : NSObject {
-    GLfloat* _ambient;
-    GLfloat* _diffuse;
-    GLfloat* _specular;
+#import "BaseAsset.h"
+#import "Mesh.h"
+@interface ObjAsset : BaseAsset {
+    NSMutableArray<Mesh*>* _subMeshes;
+    NSMutableDictionary<NSString*, Material*>* _materials;
 }
+@property(readonly) NSMutableArray<Mesh*>* subMeshes;
 - (id)init;
-- (void)releaseBuffer;
-- (void)reflect;
-- (void)setAmbient:(GLESColor*)color;
-- (void)setDiffuse:(GLESColor*)color;
-- (void)setSpecular:(GLESColor*)color;
 @end
-#endif /* Material_h */
+#endif /* ObjAsset_h */

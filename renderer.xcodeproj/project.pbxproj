@@ -45,6 +45,12 @@
 		81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 81655BFE24501CEE006B370B /* BaseWipeAsset.m */; };
 		816662F9245006B400C5993C /* StencilBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 816662F7245006B400C5993C /* StencilBufferObject.h */; };
 		816662FA245006B400C5993C /* StencilBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816662F8245006B400C5993C /* StencilBufferObject.m */; };
+		8173786724619CFF00AE510F /* MaterialAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173786524619CFF00AE510F /* MaterialAsset.m */; };
+		8173786824619CFF00AE510F /* MaterialAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786624619CFF00AE510F /* MaterialAsset.h */; };
+		8173786B24619D1B00AE510F /* Material.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786924619D1B00AE510F /* Material.h */; };
+		8173786C24619D1B00AE510F /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173786A24619D1B00AE510F /* Material.m */; };
+		8173786F2461A31C00AE510F /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786D2461A31C00AE510F /* Mesh.h */; };
+		817378702461A31C00AE510F /* Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173786E2461A31C00AE510F /* Mesh.m */; };
 		817394C522E156AF003B829B /* VertexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 817394C322E156AF003B829B /* VertexArray.m */; };
 		817394C622E156AF003B829B /* VertexArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 817394C422E156AF003B829B /* VertexArray.h */; };
 		818755E823C319F8004BF64B /* TriangleAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 818755E623C319F8004BF64B /* TriangleAsset1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,11 +59,12 @@
 		8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8192E82D242679F500EB7AAE /* TextureAsset.m */; };
 		8192E83024267CFB00EB7AAE /* GLES1Exponentiation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8192E82F24267CFB00EB7AAE /* GLES1Exponentiation.m */; };
 		8192E83224267D0700EB7AAE /* GLES1Exponentiation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8192E83124267D0700EB7AAE /* GLES1Exponentiation.h */; };
+		8199EF662459054C00FFEAA8 /* ObjAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8199EF652459054C00FFEAA8 /* ObjAsset.m */; };
+		8199EF682459055D00FFEAA8 /* ObjAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8199EF672459055D00FFEAA8 /* ObjAsset.h */; };
 		819D809D22D440A70076832A /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 819D809B22D440A70076832A /* Transform.m */; };
 		819D809E22D440A70076832A /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D809C22D440A70076832A /* Transform.h */; };
 		819D80A822D450080076832A /* GLES1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 819D80A622D450080076832A /* GLES1Camera.m */; };
 		819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D80A922D4524D0076832A /* GLES1Camera.h */; };
-		81AF396F241EFA8600E2136B /* Material.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AF396E241EFA8600E2136B /* Material.m */; };
 		81B76E1C243EB15900ADD9A6 /* GLES1Fog.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B76E1A243EB15800ADD9A6 /* GLES1Fog.h */; };
 		81B76E1D243EB15900ADD9A6 /* GLES1Fog.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B76E1B243EB15900ADD9A6 /* GLES1Fog.m */; };
 		81C08CCE24065565004F496A /* CubeAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C08CCC24065565004F496A /* CubeAsset1.m */; };
@@ -127,6 +134,12 @@
 		81655BFE24501CEE006B370B /* BaseWipeAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWipeAsset.m; sourceTree = "<group>"; };
 		816662F7245006B400C5993C /* StencilBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StencilBufferObject.h; sourceTree = "<group>"; };
 		816662F8245006B400C5993C /* StencilBufferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StencilBufferObject.m; sourceTree = "<group>"; };
+		8173786524619CFF00AE510F /* MaterialAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialAsset.m; sourceTree = "<group>"; };
+		8173786624619CFF00AE510F /* MaterialAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialAsset.h; sourceTree = "<group>"; };
+		8173786924619D1B00AE510F /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
+		8173786A24619D1B00AE510F /* Material.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
+		8173786D2461A31C00AE510F /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		8173786E2461A31C00AE510F /* Mesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
 		817394C322E156AF003B829B /* VertexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VertexArray.m; sourceTree = "<group>"; };
 		817394C422E156AF003B829B /* VertexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
 		818755E623C319F8004BF64B /* TriangleAsset1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset1.h; sourceTree = "<group>"; };
@@ -135,12 +148,12 @@
 		8192E82D242679F500EB7AAE /* TextureAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureAsset.m; sourceTree = "<group>"; };
 		8192E82F24267CFB00EB7AAE /* GLES1Exponentiation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1Exponentiation.m; sourceTree = "<group>"; };
 		8192E83124267D0700EB7AAE /* GLES1Exponentiation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Exponentiation.h; sourceTree = "<group>"; };
+		8199EF652459054C00FFEAA8 /* ObjAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjAsset.m; sourceTree = "<group>"; };
+		8199EF672459055D00FFEAA8 /* ObjAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjAsset.h; sourceTree = "<group>"; };
 		819D809B22D440A70076832A /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
 		819D809C22D440A70076832A /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		819D80A622D450080076832A /* GLES1Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Camera.m; sourceTree = "<group>"; };
 		819D80A922D4524D0076832A /* GLES1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Camera.h; sourceTree = "<group>"; };
-		81AF396E241EFA8600E2136B /* Material.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Material.m; sourceTree = "<group>"; };
-		81AF3970241EFA9100E2136B /* Material.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
 		81B76E1A243EB15800ADD9A6 /* GLES1Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Fog.h; sourceTree = "<group>"; };
 		81B76E1B243EB15900ADD9A6 /* GLES1Fog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Fog.m; sourceTree = "<group>"; };
 		81C08CCC24065565004F496A /* CubeAsset1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeAsset1.m; sourceTree = "<group>"; };
@@ -238,10 +251,10 @@
 				81655BF824501C93006B370B /* Wipe */,
 				8106332222D302FD00A2073A /* BaseAsset.h */,
 				8106332022D302FD00A2073A /* BaseAsset.m */,
-				81AF3970241EFA9100E2136B /* Material.h */,
-				81AF396E241EFA8600E2136B /* Material.m */,
 				8192E82B242679E100EB7AAE /* TextureAsset.h */,
 				8192E82D242679F500EB7AAE /* TextureAsset.m */,
+				8173786624619CFF00AE510F /* MaterialAsset.h */,
+				8173786524619CFF00AE510F /* MaterialAsset.m */,
 				811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */,
 				811ADB01244D459700745E1A /* GLES1ShaderAsset.m */,
 			);
@@ -251,6 +264,10 @@
 		8106332322D302FD00A2073A /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				8173786D2461A31C00AE510F /* Mesh.h */,
+				8173786E2461A31C00AE510F /* Mesh.m */,
+				8173786924619D1B00AE510F /* Material.h */,
+				8173786A24619D1B00AE510F /* Material.m */,
 				817394C422E156AF003B829B /* VertexArray.h */,
 				817394C322E156AF003B829B /* VertexArray.m */,
 				819D809C22D440A70076832A /* Transform.h */,
@@ -370,6 +387,8 @@
 				81C08CCC24065565004F496A /* CubeAsset1.m */,
 				811A48A82421942000C2BE66 /* SphereAsset1.h */,
 				811A48A62421941400C2BE66 /* SphereAsset1.m */,
+				8199EF672459055D00FFEAA8 /* ObjAsset.h */,
+				8199EF652459054C00FFEAA8 /* ObjAsset.m */,
 			);
 			path = Mesh;
 			sourceTree = "<group>";
@@ -408,6 +427,7 @@
 				811A48B324219F9D00C2BE66 /* GLES1Normal.h in Headers */,
 				8106333722D302FD00A2073A /* GLES1Renderer.h in Headers */,
 				81C08CD42406566A004F496A /* glu.h in Headers */,
+				8199EF682459055D00FFEAA8 /* ObjAsset.h in Headers */,
 				814EA167240608840055F562 /* ProjectonTransfomMatrix.h in Headers */,
 				81D4EC052410DC5E00E7B3F5 /* GLES1Light.h in Headers */,
 				818755E823C319F8004BF64B /* TriangleAsset1.h in Headers */,
@@ -419,7 +439,9 @@
 				817394C622E156AF003B829B /* VertexArray.h in Headers */,
 				819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */,
 				8106330C22D3029B00A2073A /* iOSObjectiveCGLES1Renderer.h in Headers */,
+				8173786F2461A31C00AE510F /* Mesh.h in Headers */,
 				811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */,
+				8173786824619CFF00AE510F /* MaterialAsset.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
 				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
@@ -428,6 +450,7 @@
 				8106334F22D347A700A2073A /* GLESColor.h in Headers */,
 				81655BFB24501C94006B370B /* WipeAsset1.h in Headers */,
 				8192E83224267D0700EB7AAE /* GLES1Exponentiation.h in Headers */,
+				8173786B24619D1B00AE510F /* Material.h in Headers */,
 				814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */,
 				814EB07324185C7900AC500C /* CircleAsset1.h in Headers */,
 				811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */,
@@ -531,11 +554,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8199EF662459054C00FFEAA8 /* ObjAsset.m in Sources */,
 				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
 				81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */,
+				817378702461A31C00AE510F /* Mesh.m in Sources */,
 				8106334322D302FD00A2073A /* FrameBufferObject.m in Sources */,
 				8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */,
+				8173786C24619D1B00AE510F /* Material.m in Sources */,
 				814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */,
 				8106335022D347A700A2073A /* GLESColor.m in Sources */,
 				81C08CD32406566A004F496A /* glu.c in Sources */,
@@ -553,9 +579,9 @@
 				811A48A72421941400C2BE66 /* SphereAsset1.m in Sources */,
 				817394C522E156AF003B829B /* VertexArray.m in Sources */,
 				814EB07824185D6F00AC500C /* GLES1Angle.m in Sources */,
-				81AF396F241EFA8600E2136B /* Material.m in Sources */,
 				8106333F22D302FD00A2073A /* Viewport.m in Sources */,
 				818755E923C319F8004BF64B /* TriangleAsset1.m in Sources */,
+				8173786724619CFF00AE510F /* MaterialAsset.m in Sources */,
 				8106333422D302FD00A2073A /* ModelViewTransformMatrix.m in Sources */,
 				819D80A822D450080076832A /* GLES1Camera.m in Sources */,
 				816662FA245006B400C5993C /* StencilBufferObject.m in Sources */,

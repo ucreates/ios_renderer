@@ -40,6 +40,10 @@
     }
     return;
 }
+- (void)setVertex:(VertexArray*)vertex {
+    self->_vertex = vertex;
+    return;
+}
 - (void)setMaterial:(Material*)material {
     self->_material = material;
     return;

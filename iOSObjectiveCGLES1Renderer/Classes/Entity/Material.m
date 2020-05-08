@@ -16,6 +16,7 @@
     self->_ambient = nil;
     self->_diffuse = nil;
     self->_specular = nil;
+    self->_hasTexture = NO;
     return self;
 }
 - (void)releaseBuffer {
@@ -33,6 +34,29 @@
     }
     return;
 }
+- (void)enable {
+    if (NO != self->_hasTexture) {
+        glActiveTexture(GL_TEXTURE0);
+        glEnable(GL_TEXTURE_2D);
+    }
+    if (nil != self->_diffuseTexture) {
+        glActiveTexture(GL_TEXTURE2);
+        glEnable(GL_TEXTURE_2D);
+    }
+    return;
+}
+- (void)disable {
+    if (NO != self->_hasTexture) {
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+        glActiveTexture(GL_TEXTURE0);
+        glDisable(GL_TEXTURE_2D);
+    }
+    if (nil != self->_diffuseTexture) {
+        glActiveTexture(GL_TEXTURE2);
+        glDisable(GL_TEXTURE_2D);
+    }
+    return;
+}
 - (void)reflect {
     if (nil != self->_ambient) {
         glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, self->_ambient);
@@ -43,6 +67,17 @@
     if (nil != self->_specular) {
         glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, self->_specular);
     }
+    if (nil != self->_diffuseTexture) {
+        glClientActiveTexture(GL_TEXTURE2);
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, self->_diffuseTexture.textureId);
+        glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+    }
+    glActiveTexture(GL_TEXTURE0);
+    return;
+}
+- (void)setName:(NSString*)name {
+    self->_name = name;
     return;
 }
 - (void)setAmbient:(GLESColor*)color {
@@ -77,5 +112,26 @@
     self->_specular[2] = color.b;
     self->_specular[3] = 1.0f;
     return;
+}
+- (void)setUVs:(GLfloat*)uvs {
+    if (NO != self->_hasTexture) {
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
+    if (nil != self->_diffuseTexture) {
+        glActiveTexture(GL_TEXTURE2);
+        glTexCoordPointer(2, GL_FLOAT, 0, uvs);
+    }
+    return;
+}
+- (void)setDiffuseTexture:(TextureAsset*)texture {
+    self->_diffuseTexture = texture;
+    self->_hasTexture = YES;
+    return;
+}
+- (NSString*)name {
+    return self->_name;
+}
+- (BOOL)hasTexture {
+    return self->_hasTexture;
 }
 @end
