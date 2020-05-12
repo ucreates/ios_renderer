@@ -84,6 +84,12 @@
               TextureAsset* texture = [[TextureAsset alloc] init];
               [texture load:path];
               [material setDiffuseTexture:texture];
+          } else if (false != [command isEqualToString:@"map_Ka"]) {
+              NSString* path = [data objectAtIndex:1];
+              path = [NSString stringWithFormat:@"%@/%@", dirPath, path];
+              TextureAsset* texture = [[TextureAsset alloc] init];
+              [texture load:path];
+              [material setAmbientTexture:texture];
           }
       }
     }];

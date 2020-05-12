@@ -39,6 +39,10 @@
         glActiveTexture(GL_TEXTURE0);
         glEnable(GL_TEXTURE_2D);
     }
+    if (nil != self->_ambientTexture) {
+        glActiveTexture(GL_TEXTURE1);
+        glEnable(GL_TEXTURE_2D);
+    }
     if (nil != self->_diffuseTexture) {
         glActiveTexture(GL_TEXTURE2);
         glEnable(GL_TEXTURE_2D);
@@ -49,6 +53,10 @@
     if (NO != self->_hasTexture) {
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glActiveTexture(GL_TEXTURE0);
+        glDisable(GL_TEXTURE_2D);
+    }
+    if (nil != self->_ambientTexture) {
+        glActiveTexture(GL_TEXTURE1);
         glDisable(GL_TEXTURE_2D);
     }
     if (nil != self->_diffuseTexture) {
@@ -66,6 +74,12 @@
     }
     if (nil != self->_specular) {
         glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, self->_specular);
+    }
+    if (nil != self->_ambientTexture) {
+        glClientActiveTexture(GL_TEXTURE1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, self->_ambientTexture.textureId);
+        glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     }
     if (nil != self->_diffuseTexture) {
         glClientActiveTexture(GL_TEXTURE2);
@@ -117,6 +131,10 @@
     if (NO != self->_hasTexture) {
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     }
+    if (nil != self->_ambientTexture) {
+        glActiveTexture(GL_TEXTURE1);
+        glTexCoordPointer(2, GL_FLOAT, 0, uvs);
+    }
     if (nil != self->_diffuseTexture) {
         glActiveTexture(GL_TEXTURE2);
         glTexCoordPointer(2, GL_FLOAT, 0, uvs);
@@ -125,6 +143,11 @@
 }
 - (void)setDiffuseTexture:(TextureAsset*)texture {
     self->_diffuseTexture = texture;
+    self->_hasTexture = YES;
+    return;
+}
+- (void)setAmbientTexture:(TextureAsset*)texture {
+    self->_ambientTexture = texture;
     self->_hasTexture = YES;
     return;
 }

@@ -21,6 +21,7 @@
     GLfloat* _specular;
     BOOL _hasTexture;
     TextureAsset* _diffuseTexture;
+    TextureAsset* _ambientTexture;
 }
 @property(readonly) BOOL hasTexture;
 @property(readonly) NSString* name;
@@ -35,5 +36,6 @@
 - (void)setDiffuse:(GLESColor*)color;
 - (void)setSpecular:(GLESColor*)color;
 - (void)setDiffuseTexture:(TextureAsset*)texture;
+- (void)setAmbientTexture:(TextureAsset*)texture;
 @end
 #endif /* Material_h */
