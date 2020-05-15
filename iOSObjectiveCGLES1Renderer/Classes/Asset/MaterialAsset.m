@@ -90,6 +90,12 @@
               TextureAsset* texture = [[TextureAsset alloc] init];
               [texture load:path];
               [material setAmbientTexture:texture];
+          } else if (false != [command isEqualToString:@"map_Bump"]) {
+              NSString* path = [data objectAtIndex:1];
+              path = [NSString stringWithFormat:@"%@/%@", dirPath, path];
+              TextureAsset* texture = [[TextureAsset alloc] init];
+              [texture load:path];
+              [material setNormalTexture:texture];
           }
       }
     }];
