@@ -31,6 +31,10 @@
 		811A48B324219F9D00C2BE66 /* GLES1Normal.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48B224219F9D00C2BE66 /* GLES1Normal.h */; };
 		811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */; };
 		811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 811ADB01244D459700745E1A /* GLES1ShaderAsset.m */; };
+		8128A24C2472223900630772 /* TextureAnimatorAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8128A24A2472223900630772 /* TextureAnimatorAsset.m */; };
+		8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8128A24B2472223900630772 /* TextureAnimatorAsset.h */; };
+		8128A250247224C300630772 /* BaseAnimatorAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8128A24E247224C300630772 /* BaseAnimatorAsset.m */; };
+		8128A251247224C300630772 /* BaseAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8128A24F247224C300630772 /* BaseAnimatorAsset.h */; };
 		814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 814B975A22D4A87C000CE7DA /* DepthBufferObject.h */; };
 		814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B975C22D4A886000CE7DA /* DepthBufferObject.m */; };
 		814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EA164240608840055F562 /* ProjectonTransfomMatrix.m */; };
@@ -117,6 +121,10 @@
 		811A48B224219F9D00C2BE66 /* GLES1Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Normal.h; sourceTree = "<group>"; };
 		811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1ShaderAsset.h; sourceTree = "<group>"; };
 		811ADB01244D459700745E1A /* GLES1ShaderAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1ShaderAsset.m; sourceTree = "<group>"; };
+		8128A24A2472223900630772 /* TextureAnimatorAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAnimatorAsset.m; sourceTree = "<group>"; };
+		8128A24B2472223900630772 /* TextureAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAnimatorAsset.h; sourceTree = "<group>"; };
+		8128A24E247224C300630772 /* BaseAnimatorAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimatorAsset.m; sourceTree = "<group>"; };
+		8128A24F247224C300630772 /* BaseAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimatorAsset.h; sourceTree = "<group>"; };
 		814B975A22D4A87C000CE7DA /* DepthBufferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthBufferObject.h; sourceTree = "<group>"; };
 		814B975C22D4A886000CE7DA /* DepthBufferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthBufferObject.m; sourceTree = "<group>"; };
 		814EA164240608840055F562 /* ProjectonTransfomMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectonTransfomMatrix.m; sourceTree = "<group>"; };
@@ -251,8 +259,12 @@
 				81655BF824501C93006B370B /* Wipe */,
 				8106332222D302FD00A2073A /* BaseAsset.h */,
 				8106332022D302FD00A2073A /* BaseAsset.m */,
+				8128A24F247224C300630772 /* BaseAnimatorAsset.h */,
+				8128A24E247224C300630772 /* BaseAnimatorAsset.m */,
 				8192E82B242679E100EB7AAE /* TextureAsset.h */,
 				8192E82D242679F500EB7AAE /* TextureAsset.m */,
+				8128A24B2472223900630772 /* TextureAnimatorAsset.h */,
+				8128A24A2472223900630772 /* TextureAnimatorAsset.m */,
 				8173786624619CFF00AE510F /* MaterialAsset.h */,
 				8173786524619CFF00AE510F /* MaterialAsset.m */,
 				811ADAFF244D458600745E1A /* GLES1ShaderAsset.h */,
@@ -444,6 +456,7 @@
 				8173786824619CFF00AE510F /* MaterialAsset.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
+				8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */,
 				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
 				81C08CCF24065565004F496A /* CubeAsset1.h in Headers */,
 				8106334522D302FD00A2073A /* ColorBufferObject.h in Headers */,
@@ -454,6 +467,7 @@
 				814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */,
 				814EB07324185C7900AC500C /* CircleAsset1.h in Headers */,
 				811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */,
+				8128A251247224C300630772 /* BaseAnimatorAsset.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +572,7 @@
 				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
 				81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */,
+				8128A24C2472223900630772 /* TextureAnimatorAsset.m in Sources */,
 				817378702461A31C00AE510F /* Mesh.m in Sources */,
 				8106334322D302FD00A2073A /* FrameBufferObject.m in Sources */,
 				8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */,
@@ -585,6 +600,7 @@
 				8106333422D302FD00A2073A /* ModelViewTransformMatrix.m in Sources */,
 				819D80A822D450080076832A /* GLES1Camera.m in Sources */,
 				816662FA245006B400C5993C /* StencilBufferObject.m in Sources */,
+				8128A250247224C300630772 /* BaseAnimatorAsset.m in Sources */,
 				8192E83024267CFB00EB7AAE /* GLES1Exponentiation.m in Sources */,
 				81D038BF2443E76E002367AB /* GLESBlend.m in Sources */,
 				81C08CCE24065565004F496A /* CubeAsset1.m in Sources */,

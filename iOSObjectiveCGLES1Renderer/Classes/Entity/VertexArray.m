@@ -18,6 +18,7 @@ static const int kVertexCountPerTriangle = 3;
     self->_verticies = nil;
     self->_colors = nil;
     self->_normals = nil;
+    self->_uvs = nil;
     return self;
 }
 - (void)releaseBuffer {
@@ -32,6 +33,10 @@ static const int kVertexCountPerTriangle = 3;
     if (nil != self->_normals) {
         free(self->_normals);
         self->_normals = nil;
+    }
+    if (nil != self->_uvs) {
+        free(self->_uvs);
+        self->_uvs = nil;
     }
     return;
 }
