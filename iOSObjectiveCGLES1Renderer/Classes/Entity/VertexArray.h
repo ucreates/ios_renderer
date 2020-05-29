@@ -29,6 +29,7 @@
 @property(readonly) GLfloat* uvs;
 - (id)init:(int)dimension;
 - (void)releaseBuffer;
+- (void)releaseUVBuffer;
 - (void)setVertexCount:(int)count;
 - (void)setVerticies:(GLfloat*)verticies verticiesCount:(int)verticiesCount;
 - (void)setVerticies:(NSMutableArray*)verticies;
@@ -40,5 +41,6 @@
 - (void)setUVs:(NSMutableArray*)uvs;
 - (void)setRandomColor;
 - (void)setAlpha:(GLfloat)alpha;
+- (void)resetUVs:(GLfloat*)uvs;
 @end
 #endif /* VertexArray_h */

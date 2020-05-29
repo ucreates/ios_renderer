@@ -40,6 +40,13 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)releaseUVBuffer {
+    if (nil != self->_uvs) {
+        free(self->_uvs);
+        self->_uvs = nil;
+    }
+    return;
+}
 - (void)setVertexCount:(int)count {
     self->_vertexCount = count;
     return;
@@ -153,6 +160,10 @@ static const int kVertexCountPerTriangle = 3;
     for (int i = 3; i < self->_vertexColorCount; i += 4) {
         self->_colors[i] = alpha;
     }
+    return;
+}
+- (void)resetUVs:(GLfloat*)uvs {
+    self->_uvs = uvs;
     return;
 }
 - (int)dimension {
