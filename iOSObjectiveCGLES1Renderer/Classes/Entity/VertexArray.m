@@ -149,6 +149,32 @@ static const int kVertexCountPerTriangle = 3;
     }
     return;
 }
+- (void)setIndicies:(GLushort*)indicies indiciesCount:(int)indiciesCount {
+    if (0 == indiciesCount) {
+        return;
+    }
+    int memsize = indiciesCount * sizeof(GLushort);
+    self->_indicies = (GLushort*)malloc(memsize);
+    for (int i = 0; i < indiciesCount; i++) {
+        self->_indicies[i] = indicies[i];
+    }
+    self->_indexCount = indiciesCount;
+    return;
+}
+- (void)setIndicies:(NSMutableArray*)indicies {
+    if (0 == indicies.count) {
+        return;
+    }
+    int idx = 0;
+    int memsize = (int)indicies.count * sizeof(GLushort);
+    self->_indicies = (GLushort*)malloc(memsize);
+    for (NSObject* index in indicies) {
+        self->_indicies[idx] = [(NSString*)index intValue];
+        idx++;
+    }
+    self->_indexCount = (int)indicies.count;
+    return;
+}
 - (void)setRandomColor {
     for (int i = 0; i < self->_vertexColorCount; i++) {
         int color = rand() % 255;
@@ -171,6 +197,9 @@ static const int kVertexCountPerTriangle = 3;
 }
 - (int)count {
     return self->_vertexCount;
+}
+- (int)indexCount {
+    return self->_indexCount;
 }
 - (GLfloat*)verticies {
     return self->_verticies;

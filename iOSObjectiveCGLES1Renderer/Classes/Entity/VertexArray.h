@@ -16,17 +16,21 @@
     int _dimension;
     int _vertexCount;
     int _vertexColorCount;
+    int _indexCount;
     GLfloat* _verticies;
     GLfloat* _colors;
     GLfloat* _normals;
     GLfloat* _uvs;
+    GLushort* _indicies;
 }
 @property(readonly) int dimension;
 @property(readonly) int count;
+@property(readonly) int indexCount;
 @property(readonly) GLfloat* verticies;
 @property(readonly) GLfloat* colors;
 @property(readonly) GLfloat* normals;
 @property(readonly) GLfloat* uvs;
+@property(readonly) GLushort* indicies;
 - (id)init:(int)dimension;
 - (void)releaseBuffer;
 - (void)releaseUVBuffer;
@@ -39,6 +43,8 @@
 - (void)setNormals:(NSMutableArray*)normals;
 - (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount;
 - (void)setUVs:(NSMutableArray*)uvs;
+- (void)setIndicies:(GLushort*)indicies indiciesCount:(int)indiciesCount;
+- (void)setIndicies:(NSMutableArray*)indicies;
 - (void)setRandomColor;
 - (void)setAlpha:(GLfloat)alpha;
 - (void)resetUVs:(GLfloat*)uvs;

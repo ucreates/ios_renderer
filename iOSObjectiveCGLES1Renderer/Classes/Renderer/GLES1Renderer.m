@@ -254,7 +254,11 @@
     if (nil != asset.material) {
         [asset.material reflect];
     }
-    glDrawArrays(asset.renderMode, 0, asset.vertex.count);
+    if (nil == asset.vertex.indicies) {
+        glDrawArrays(asset.renderMode, 0, asset.vertex.count);
+    } else {
+        glDrawElements(asset.renderMode, asset.vertex.indexCount, GL_UNSIGNED_SHORT, asset.vertex.indicies);
+    }
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
