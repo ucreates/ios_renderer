@@ -28,5 +28,6 @@
 - (id)init;
 - (void)releaseBuffer;
 - (void)load:(NSString*)path;
+- (void)loadMipmap:(NSMutableArray<NSString*>*)paths;
 @end
 #endif /* TextureAsset_h */

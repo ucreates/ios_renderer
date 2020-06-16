@@ -40,6 +40,7 @@
 - (id)init;
 - (void)create;
 - (void)create:(NSString*)texturePath;
+- (void)createMipmap:(NSMutableArray<NSString*>*)texturePaths;
 - (void)dispose;
 - (void)setVertex:(VertexArray*)vertex;
 - (void)setMaterial:(Material*)material;

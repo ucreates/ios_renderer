@@ -53,6 +53,51 @@
     self->_uvRatio = CGSizeMake(widthRate, heightRate);
     return;
 }
+- (void)loadMipmap:(NSMutableArray<NSString*>*)paths {
+    size_t width = 0;
+    size_t height = 0;
+    GLuint edge = 0;
+    GLuint tid;
+    glGenTextures(1, &tid);
+    glBindTexture(GL_TEXTURE_2D, tid);
+    for (int i = 0; i < paths.count; i++) {
+        NSString* path = [paths objectAtIndex:i];
+        UIImage* image = [UIImage imageNamed:path];
+        CGImageRef imageRef = image.CGImage;
+        if (nil == imageRef) {
+            NSLog(@"imageref is nil");
+            return;
+        }
+        size_t tmpWidth = CGImageGetWidth(imageRef);
+        size_t tmpHeight = CGImageGetHeight(imageRef);
+        GLuint tmpEdge = tmpWidth >= tmpHeight ? (GLuint)tmpWidth : (GLuint)tmpHeight;
+        tmpEdge = [GLES1Exponentiation getExponentiation:tmpEdge];
+        width = 0 == width ? tmpWidth : width;
+        height = 0 == height ? tmpHeight : height;
+        edge = 0 == edge ? tmpEdge : edge;
+        size_t fileSize = tmpEdge * tmpEdge * kRGBA;
+        size_t stride = tmpEdge * kRGBA;
+        GLubyte* textureData = (GLubyte*)malloc(fileSize);
+        CGColorSpaceRef colorSpaceRef = CGImageGetColorSpace(imageRef);
+        CGContextRef context = CGBitmapContextCreate(textureData, tmpEdge, tmpEdge, 8, stride, colorSpaceRef, kCGImageAlphaPremultipliedLast);
+        CGRect rect = CGRectMake(0, 0, (CGFloat)tmpWidth, (CGFloat)tmpHeight);
+        CGContextDrawImage(context, rect, imageRef);
+        CGContextRelease(context);
+        glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, i, GL_RGBA, (CGFloat)tmpEdge, (CGFloat)tmpEdge, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+        free(textureData);
+    }
+    GLfloat widthRate = (GLfloat)width / (GLfloat)edge;
+    GLfloat heightRate = (GLfloat)height / (GLfloat)edge;
+    self->_textureId = tid;
+    self->_size = CGSizeMake(width, height);
+    self->_uvRatio = CGSizeMake(widthRate, heightRate);
+    return;
+}
 - (void)releaseBuffer {
     glDeleteTextures(1, &self->_textureId);
     return;
