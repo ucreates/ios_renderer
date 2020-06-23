@@ -67,6 +67,8 @@
 		8192E83224267D0700EB7AAE /* GLES1Exponentiation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8192E83124267D0700EB7AAE /* GLES1Exponentiation.h */; };
 		8199EF662459054C00FFEAA8 /* ObjAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8199EF652459054C00FFEAA8 /* ObjAsset.m */; };
 		8199EF682459055D00FFEAA8 /* ObjAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8199EF672459055D00FFEAA8 /* ObjAsset.h */; };
+		819B185824A02D4E00BE4AA9 /* RectangleAsset2.h in Headers */ = {isa = PBXBuildFile; fileRef = 819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */; };
+		819B185924A02D4E00BE4AA9 /* RectangleAsset2.m in Sources */ = {isa = PBXBuildFile; fileRef = 819B185724A02D4E00BE4AA9 /* RectangleAsset2.m */; };
 		819D809D22D440A70076832A /* Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 819D809B22D440A70076832A /* Transform.m */; };
 		819D809E22D440A70076832A /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D809C22D440A70076832A /* Transform.h */; };
 		819D80A822D450080076832A /* GLES1Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 819D80A622D450080076832A /* GLES1Camera.m */; };
@@ -164,6 +166,8 @@
 		8192E83124267D0700EB7AAE /* GLES1Exponentiation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLES1Exponentiation.h; sourceTree = "<group>"; };
 		8199EF652459054C00FFEAA8 /* ObjAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjAsset.m; sourceTree = "<group>"; };
 		8199EF672459055D00FFEAA8 /* ObjAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjAsset.h; sourceTree = "<group>"; };
+		819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleAsset2.h; sourceTree = "<group>"; };
+		819B185724A02D4E00BE4AA9 /* RectangleAsset2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleAsset2.m; sourceTree = "<group>"; };
 		819D809B22D440A70076832A /* Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transform.m; sourceTree = "<group>"; };
 		819D809C22D440A70076832A /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		819D80A622D450080076832A /* GLES1Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Camera.m; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				818755E723C319F8004BF64B /* TriangleAsset1.m */,
 				81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */,
 				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
+				819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */,
+				819B185724A02D4E00BE4AA9 /* RectangleAsset2.m */,
 			);
 			path = Polygon;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
 				81C08CCF24065565004F496A /* CubeAsset1.h in Headers */,
 				8106334522D302FD00A2073A /* ColorBufferObject.h in Headers */,
+				819B185824A02D4E00BE4AA9 /* RectangleAsset2.h in Headers */,
 				8106334F22D347A700A2073A /* GLESColor.h in Headers */,
 				81655BFB24501C94006B370B /* WipeAsset1.h in Headers */,
 				8192E83224267D0700EB7AAE /* GLES1Exponentiation.h in Headers */,
@@ -582,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819B185924A02D4E00BE4AA9 /* RectangleAsset2.m in Sources */,
 				8199EF662459054C00FFEAA8 /* ObjAsset.m in Sources */,
 				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
