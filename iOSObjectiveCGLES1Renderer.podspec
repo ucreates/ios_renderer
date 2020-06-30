@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'iOSObjectiveCGLES1Renderer'
-  s.version      = '1.23.0'
+  s.version      = '1.24.0'
   s.summary      = 'iOSGLES1Renderer(iOSObjectiveC)'
   s.description  = 'ios renderer by OpenGLES1 and ObjectiveC.'
   s.homepage     = 'https://github.com/ucreates/ios_renderer'

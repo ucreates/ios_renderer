@@ -87,6 +87,8 @@
 		81D4EC052410DC5E00E7B3F5 /* GLES1Light.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D4EC032410DC5E00E7B3F5 /* GLES1Light.h */; };
 		81D89D532484C58000A56DBE /* TriangleAsset2.h in Headers */ = {isa = PBXBuildFile; fileRef = 81D89D512484C58000A56DBE /* TriangleAsset2.h */; };
 		81D89D542484C58000A56DBE /* TriangleAsset2.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D89D522484C58000A56DBE /* TriangleAsset2.m */; };
+		81F4421B24A17EDB009C443B /* CircleAsset2.h in Headers */ = {isa = PBXBuildFile; fileRef = 81F4421924A17EDB009C443B /* CircleAsset2.h */; };
+		81F4421C24A17EDB009C443B /* CircleAsset2.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F4421A24A17EDB009C443B /* CircleAsset2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,8 @@
 		81D4EC032410DC5E00E7B3F5 /* GLES1Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Light.h; sourceTree = "<group>"; };
 		81D89D512484C58000A56DBE /* TriangleAsset2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset2.h; sourceTree = "<group>"; };
 		81D89D522484C58000A56DBE /* TriangleAsset2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleAsset2.m; sourceTree = "<group>"; };
+		81F4421924A17EDB009C443B /* CircleAsset2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleAsset2.h; sourceTree = "<group>"; };
+		81F4421A24A17EDB009C443B /* CircleAsset2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleAsset2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,10 +391,10 @@
 		818755E523C319F8004BF64B /* Polygon */ = {
 			isa = PBXGroup;
 			children = (
-				81D89D512484C58000A56DBE /* TriangleAsset2.h */,
-				81D89D522484C58000A56DBE /* TriangleAsset2.m */,
 				818755E623C319F8004BF64B /* TriangleAsset1.h */,
 				818755E723C319F8004BF64B /* TriangleAsset1.m */,
+				81D89D512484C58000A56DBE /* TriangleAsset2.h */,
+				81D89D522484C58000A56DBE /* TriangleAsset2.m */,
 				81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */,
 				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
 				819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */,
@@ -413,6 +417,8 @@
 			children = (
 				814EB07224185C7900AC500C /* CircleAsset1.h */,
 				814EB07424185C8B00AC500C /* CircleAsset1.m */,
+				81F4421924A17EDB009C443B /* CircleAsset2.h */,
+				81F4421A24A17EDB009C443B /* CircleAsset2.m */,
 				81C08CCD24065565004F496A /* CubeAsset1.h */,
 				81C08CCC24065565004F496A /* CubeAsset1.m */,
 				811A48A82421942000C2BE66 /* SphereAsset1.h */,
@@ -474,6 +480,7 @@
 				8173786F2461A31C00AE510F /* Mesh.h in Headers */,
 				811ADB00244D458600745E1A /* GLES1ShaderAsset.h in Headers */,
 				8173786824619CFF00AE510F /* MaterialAsset.h in Headers */,
+				81F4421B24A17EDB009C443B /* CircleAsset2.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
 				8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */,
@@ -618,6 +625,7 @@
 				811A48A72421941400C2BE66 /* SphereAsset1.m in Sources */,
 				817394C522E156AF003B829B /* VertexArray.m in Sources */,
 				814EB07824185D6F00AC500C /* GLES1Angle.m in Sources */,
+				81F4421C24A17EDB009C443B /* CircleAsset2.m in Sources */,
 				8106333F22D302FD00A2073A /* Viewport.m in Sources */,
 				818755E923C319F8004BF64B /* TriangleAsset1.m in Sources */,
 				8173786724619CFF00AE510F /* MaterialAsset.m in Sources */,
