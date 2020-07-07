@@ -35,6 +35,8 @@
 		8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8128A24B2472223900630772 /* TextureAnimatorAsset.h */; };
 		8128A250247224C300630772 /* BaseAnimatorAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8128A24E247224C300630772 /* BaseAnimatorAsset.m */; };
 		8128A251247224C300630772 /* BaseAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8128A24F247224C300630772 /* BaseAnimatorAsset.h */; };
+		8135DC9724A4367D00A4C72D /* CubeAsset2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8135DC9524A4367D00A4C72D /* CubeAsset2.m */; };
+		8135DC9824A4367D00A4C72D /* CubeAsset2.h in Headers */ = {isa = PBXBuildFile; fileRef = 8135DC9624A4367D00A4C72D /* CubeAsset2.h */; };
 		81416DFC247366BD0082A367 /* TextureAtlasAnimatorAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 81416DFA247366BD0082A367 /* TextureAtlasAnimatorAsset.m */; };
 		81416DFD247366BD0082A367 /* TextureAtlasAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 81416DFB247366BD0082A367 /* TextureAtlasAnimatorAsset.h */; };
 		814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 814B975A22D4A87C000CE7DA /* DepthBufferObject.h */; };
@@ -133,6 +135,8 @@
 		8128A24B2472223900630772 /* TextureAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAnimatorAsset.h; sourceTree = "<group>"; };
 		8128A24E247224C300630772 /* BaseAnimatorAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAnimatorAsset.m; sourceTree = "<group>"; };
 		8128A24F247224C300630772 /* BaseAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAnimatorAsset.h; sourceTree = "<group>"; };
+		8135DC9524A4367D00A4C72D /* CubeAsset2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeAsset2.m; sourceTree = "<group>"; };
+		8135DC9624A4367D00A4C72D /* CubeAsset2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeAsset2.h; sourceTree = "<group>"; };
 		81416DFA247366BD0082A367 /* TextureAtlasAnimatorAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlasAnimatorAsset.m; sourceTree = "<group>"; };
 		81416DFB247366BD0082A367 /* TextureAtlasAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasAnimatorAsset.h; sourceTree = "<group>"; };
 		814B975A22D4A87C000CE7DA /* DepthBufferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthBufferObject.h; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 				81F4421A24A17EDB009C443B /* CircleAsset2.m */,
 				81C08CCD24065565004F496A /* CubeAsset1.h */,
 				81C08CCC24065565004F496A /* CubeAsset1.m */,
+				8135DC9624A4367D00A4C72D /* CubeAsset2.h */,
+				8135DC9524A4367D00A4C72D /* CubeAsset2.m */,
 				811A48A82421942000C2BE66 /* SphereAsset1.h */,
 				811A48A62421941400C2BE66 /* SphereAsset1.m */,
 				8199EF672459055D00FFEAA8 /* ObjAsset.h */,
@@ -468,6 +474,7 @@
 				814EA167240608840055F562 /* ProjectonTransfomMatrix.h in Headers */,
 				81D4EC052410DC5E00E7B3F5 /* GLES1Light.h in Headers */,
 				818755E823C319F8004BF64B /* TriangleAsset1.h in Headers */,
+				8135DC9824A4367D00A4C72D /* CubeAsset2.h in Headers */,
 				8106334022D302FD00A2073A /* BaseBufferObject.h in Headers */,
 				819D809E22D440A70076832A /* Transform.h in Headers */,
 				8106333E22D302FD00A2073A /* Viewport.h in Headers */,
@@ -634,6 +641,7 @@
 				816662FA245006B400C5993C /* StencilBufferObject.m in Sources */,
 				8128A250247224C300630772 /* BaseAnimatorAsset.m in Sources */,
 				8192E83024267CFB00EB7AAE /* GLES1Exponentiation.m in Sources */,
+				8135DC9724A4367D00A4C72D /* CubeAsset2.m in Sources */,
 				81D038BF2443E76E002367AB /* GLESBlend.m in Sources */,
 				81C08CCE24065565004F496A /* CubeAsset1.m in Sources */,
 			);

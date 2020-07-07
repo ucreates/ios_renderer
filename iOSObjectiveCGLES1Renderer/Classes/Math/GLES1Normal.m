@@ -22,4 +22,19 @@
     GLfloat nz = vx1 * vy2 - vy1 * vx2;
     return GLKVector3Make(nx, ny, nz);
 }
++ (GLKVector3)toOne:(GLKVector3)vector {
+    GLfloat x = 0.0f;
+    GLfloat y = 0.0f;
+    GLfloat z = 0.0f;
+    if (0 < fabsf(vector.x)) {
+        x = vector.x / fabsf(vector.x);
+    }
+    if (0 < fabsf(vector.y)) {
+        y = vector.y / fabsf(vector.y);
+    }
+    if (0 < fabsf(vector.z)) {
+        z = vector.z / fabsf(vector.z);
+    }
+    return GLKVector3Make(x, y, z);
+}
 @end

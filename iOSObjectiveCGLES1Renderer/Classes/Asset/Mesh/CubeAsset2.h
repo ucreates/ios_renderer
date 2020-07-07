@@ -7,12 +7,10 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Normal_h
-#define GLES1Normal_h
 #import <Foundation/Foundation.h>
-#import <GLKit/GLKit.h>
-@interface GLES1Normal : NSObject
-+ (GLKVector3)toNormal:(GLfloat)x1 y1:(GLfloat)y1 z1:(GLfloat)z1 x2:(GLfloat)x2 y2:(GLfloat)y2 z2:(GLfloat)z2 x3:(GLfloat)x3 y3:(GLfloat)y3 z3:(GLfloat)z3;
-+ (GLKVector3)toOne:(GLKVector3)vector;
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
+#import "BaseAsset.h"
+@interface CubeAsset2 : BaseAsset
+- (id)init:(GLfloat)width height:(GLfloat)height depth:(GLfloat)depth color:(GLESColor*)color;
 @end
-#endif /* GLES1Normal_h */
