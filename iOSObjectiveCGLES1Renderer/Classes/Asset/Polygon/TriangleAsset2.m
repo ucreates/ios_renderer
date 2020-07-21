@@ -10,6 +10,7 @@
 #import "TriangleAsset2.h"
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "GLES1Renderer.h"
 @interface TriangleAsset2 ()
 @end
 @implementation TriangleAsset2
@@ -18,7 +19,7 @@
     self->_width = width;
     self->_height = height;
     self->_color = color;
-    self->_vertex = [[VertexArray alloc] init:2];
+    self->_vertex = [[VertexArray alloc] init:kDimension2D];
     return self;
 }
 - (void)create {
@@ -60,6 +61,64 @@
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
     [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
+    return;
+}
+- (void)create:(NSString*)texturePath {
+    self->_texture = [[TextureAsset alloc] init];
+    [self->_texture load:texturePath];
+    GLfloat vratio = 1.0f - self->_texture.uvRatio.height;
+    GLfloat x = 0.5f * self->_width * self->_texture.uvRatio.width;
+    GLfloat y = 0.5f * self->_height * self->_texture.uvRatio.height;
+    GLfloat vertices[] = {
+        // left down
+        -x,
+        -y,
+        // right down
+        x,
+        -y,
+        // center top
+        0.0f,
+        y,
+    };
+    GLfloat colors[] = {
+        // left down
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // right down
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+        // center top
+        self->_color.r,
+        self->_color.g,
+        self->_color.b,
+        self->_color.a,
+    };
+    GLfloat uvs[] = {
+        // left down
+        0.0f,
+        1.0f,
+        // right down
+        1.0f * self->_texture.uvRatio.width,
+        1.0f,
+        // center top
+        0.5f,
+        0.0f + vratio,
+    };
+    GLushort indicies[] = {0, 1, 2};
+    int verticesLength = sizeof(vertices) / sizeof(GLfloat);
+    int colorsLength = sizeof(colors) / sizeof(GLfloat);
+    int uvsLength = sizeof(uvs) / sizeof(GLfloat);
+    int indiciesLength = sizeof(indicies) / sizeof(GLushort);
+    int vertexCount = verticesLength / self.vertex.dimension;
+    [self->_vertex setVertexCount:vertexCount];
+    [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
+    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setUVs:uvs uvsCount:uvsLength];
     [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
     return;
 }
