@@ -53,6 +53,8 @@
 		81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 81655BFE24501CEE006B370B /* BaseWipeAsset.m */; };
 		816662F9245006B400C5993C /* StencilBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 816662F7245006B400C5993C /* StencilBufferObject.h */; };
 		816662FA245006B400C5993C /* StencilBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816662F8245006B400C5993C /* StencilBufferObject.m */; };
+		8167B04224AABFC900FFB4A7 /* TriangleAsset3.h in Headers */ = {isa = PBXBuildFile; fileRef = 8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */; };
+		8167B04324AABFC900FFB4A7 /* TriangleAsset3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */; };
 		8173786724619CFF00AE510F /* MaterialAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173786524619CFF00AE510F /* MaterialAsset.m */; };
 		8173786824619CFF00AE510F /* MaterialAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786624619CFF00AE510F /* MaterialAsset.h */; };
 		8173786B24619D1B00AE510F /* Material.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786924619D1B00AE510F /* Material.h */; };
@@ -158,6 +160,8 @@
 		81655BFE24501CEE006B370B /* BaseWipeAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWipeAsset.m; sourceTree = "<group>"; };
 		816662F7245006B400C5993C /* StencilBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StencilBufferObject.h; sourceTree = "<group>"; };
 		816662F8245006B400C5993C /* StencilBufferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StencilBufferObject.m; sourceTree = "<group>"; };
+		8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset3.h; sourceTree = "<group>"; };
+		8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleAsset3.m; sourceTree = "<group>"; };
 		8173786524619CFF00AE510F /* MaterialAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialAsset.m; sourceTree = "<group>"; };
 		8173786624619CFF00AE510F /* MaterialAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialAsset.h; sourceTree = "<group>"; };
 		8173786924619D1B00AE510F /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
@@ -399,10 +403,12 @@
 		818755E523C319F8004BF64B /* Polygon */ = {
 			isa = PBXGroup;
 			children = (
-				818755E623C319F8004BF64B /* TriangleAsset1.h */,
-				818755E723C319F8004BF64B /* TriangleAsset1.m */,
 				81D89D512484C58000A56DBE /* TriangleAsset2.h */,
 				81D89D522484C58000A56DBE /* TriangleAsset2.m */,
+				818755E623C319F8004BF64B /* TriangleAsset1.h */,
+				818755E723C319F8004BF64B /* TriangleAsset1.m */,
+				8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */,
+				8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */,
 				81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */,
 				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
 				819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */,
@@ -509,6 +515,7 @@
 				814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */,
 				814EB07324185C7900AC500C /* CircleAsset1.h in Headers */,
 				811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */,
+				8167B04224AABFC900FFB4A7 /* TriangleAsset3.h in Headers */,
 				8128A251247224C300630772 /* BaseAnimatorAsset.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -633,6 +640,7 @@
 				8106334422D302FD00A2073A /* BaseBufferObject.m in Sources */,
 				819D809D22D440A70076832A /* Transform.m in Sources */,
 				81655BFC24501C94006B370B /* WipeAsset1.m in Sources */,
+				8167B04324AABFC900FFB4A7 /* TriangleAsset3.m in Sources */,
 				814EB07524185C8B00AC500C /* CircleAsset1.m in Sources */,
 				81B76E1D243EB15900ADD9A6 /* GLES1Fog.m in Sources */,
 				811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */,
