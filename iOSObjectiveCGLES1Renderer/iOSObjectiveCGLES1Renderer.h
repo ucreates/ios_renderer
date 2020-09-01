@@ -26,6 +26,7 @@ FOUNDATION_EXPORT const unsigned char iOSObjectiveCGLES1RendererVersionString[];
 #import "ObjAsset.h"
 #import "RectangleAsset1.h"
 #import "RectangleAsset2.h"
+#import "RectangleAsset3.h"
 #import "SphereAsset1.h"
 #import "SphereAsset2.h"
 #import "TextureAnimatorAsset.h"

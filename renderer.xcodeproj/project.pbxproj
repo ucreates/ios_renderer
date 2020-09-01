@@ -41,6 +41,8 @@
 		81416DFD247366BD0082A367 /* TextureAtlasAnimatorAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 81416DFB247366BD0082A367 /* TextureAtlasAnimatorAsset.h */; };
 		814B975B22D4A87C000CE7DA /* DepthBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 814B975A22D4A87C000CE7DA /* DepthBufferObject.h */; };
 		814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 814B975C22D4A886000CE7DA /* DepthBufferObject.m */; };
+		814CB67824AD60C600277915 /* RectangleAsset3.h in Headers */ = {isa = PBXBuildFile; fileRef = 814CB67624AD60C500277915 /* RectangleAsset3.h */; };
+		814CB67924AD60C600277915 /* RectangleAsset3.m in Sources */ = {isa = PBXBuildFile; fileRef = 814CB67724AD60C500277915 /* RectangleAsset3.m */; };
 		814EA166240608840055F562 /* ProjectonTransfomMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 814EA164240608840055F562 /* ProjectonTransfomMatrix.m */; };
 		814EA167240608840055F562 /* ProjectonTransfomMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 814EA165240608840055F562 /* ProjectonTransfomMatrix.h */; };
 		814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 814EA168240630C10055F562 /* ModelViewTransformMatrix.h */; };
@@ -145,6 +147,8 @@
 		81416DFB247366BD0082A367 /* TextureAtlasAnimatorAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasAnimatorAsset.h; sourceTree = "<group>"; };
 		814B975A22D4A87C000CE7DA /* DepthBufferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DepthBufferObject.h; sourceTree = "<group>"; };
 		814B975C22D4A886000CE7DA /* DepthBufferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DepthBufferObject.m; sourceTree = "<group>"; };
+		814CB67624AD60C500277915 /* RectangleAsset3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleAsset3.h; sourceTree = "<group>"; };
+		814CB67724AD60C500277915 /* RectangleAsset3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleAsset3.m; sourceTree = "<group>"; };
 		814EA164240608840055F562 /* ProjectonTransfomMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectonTransfomMatrix.m; sourceTree = "<group>"; };
 		814EA165240608840055F562 /* ProjectonTransfomMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectonTransfomMatrix.h; sourceTree = "<group>"; };
 		814EA168240630C10055F562 /* ModelViewTransformMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelViewTransformMatrix.h; sourceTree = "<group>"; };
@@ -413,6 +417,8 @@
 				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
 				819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */,
 				819B185724A02D4E00BE4AA9 /* RectangleAsset2.m */,
+				814CB67624AD60C500277915 /* RectangleAsset3.h */,
+				814CB67724AD60C500277915 /* RectangleAsset3.m */,
 			);
 			path = Polygon;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				81D038C12443E77A002367AB /* GLESBlend.h in Headers */,
 				816662F9245006B400C5993C /* StencilBufferObject.h in Headers */,
 				81416DFD247366BD0082A367 /* TextureAtlasAnimatorAsset.h in Headers */,
+				814CB67824AD60C600277915 /* RectangleAsset3.h in Headers */,
 				81B65D6A24A5DA190075C0D1 /* SphereAsset2.h in Headers */,
 				817394C622E156AF003B829B /* VertexArray.h in Headers */,
 				819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */,
@@ -621,6 +628,7 @@
 				8199EF662459054C00FFEAA8 /* ObjAsset.m in Sources */,
 				81B65D6B24A5DA190075C0D1 /* SphereAsset2.m in Sources */,
 				811ADB02244D459700745E1A /* GLES1ShaderAsset.m in Sources */,
+				814CB67924AD60C600277915 /* RectangleAsset3.m in Sources */,
 				814B975D22D4A886000CE7DA /* DepthBufferObject.m in Sources */,
 				81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */,
 				8128A24C2472223900630772 /* TextureAnimatorAsset.m in Sources */,
