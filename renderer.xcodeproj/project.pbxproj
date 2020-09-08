@@ -25,6 +25,8 @@
 		8106334522D302FD00A2073A /* ColorBufferObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8106332F22D302FD00A2073A /* ColorBufferObject.h */; };
 		8106334F22D347A700A2073A /* GLESColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8106334D22D347A700A2073A /* GLESColor.h */; };
 		8106335022D347A700A2073A /* GLESColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8106334E22D347A700A2073A /* GLESColor.m */; };
+		811963AA24BFE08800414A03 /* CircleAsset3.h in Headers */ = {isa = PBXBuildFile; fileRef = 811963A824BFE08800414A03 /* CircleAsset3.h */; };
+		811963AB24BFE08800414A03 /* CircleAsset3.m in Sources */ = {isa = PBXBuildFile; fileRef = 811963A924BFE08800414A03 /* CircleAsset3.m */; };
 		811A48A72421941400C2BE66 /* SphereAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 811A48A62421941400C2BE66 /* SphereAsset1.m */; };
 		811A48A92421942000C2BE66 /* SphereAsset1.h in Headers */ = {isa = PBXBuildFile; fileRef = 811A48A82421942000C2BE66 /* SphereAsset1.h */; };
 		811A48B124219F9100C2BE66 /* GLES1Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = 811A48B024219F9100C2BE66 /* GLES1Normal.m */; };
@@ -131,6 +133,8 @@
 		8106332F22D302FD00A2073A /* ColorBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBufferObject.h; sourceTree = "<group>"; };
 		8106334D22D347A700A2073A /* GLESColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESColor.h; sourceTree = "<group>"; };
 		8106334E22D347A700A2073A /* GLESColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLESColor.m; sourceTree = "<group>"; };
+		811963A824BFE08800414A03 /* CircleAsset3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleAsset3.h; sourceTree = "<group>"; };
+		811963A924BFE08800414A03 /* CircleAsset3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleAsset3.m; sourceTree = "<group>"; };
 		811A48A62421941400C2BE66 /* SphereAsset1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereAsset1.m; sourceTree = "<group>"; };
 		811A48A82421942000C2BE66 /* SphereAsset1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereAsset1.h; sourceTree = "<group>"; };
 		811A48B024219F9100C2BE66 /* GLES1Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLES1Normal.m; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 				814EB07424185C8B00AC500C /* CircleAsset1.m */,
 				81F4421924A17EDB009C443B /* CircleAsset2.h */,
 				81F4421A24A17EDB009C443B /* CircleAsset2.m */,
+				811963A824BFE08800414A03 /* CircleAsset3.h */,
+				811963A924BFE08800414A03 /* CircleAsset3.m */,
 				81C08CCD24065565004F496A /* CubeAsset1.h */,
 				81C08CCC24065565004F496A /* CubeAsset1.m */,
 				8135DC9624A4367D00A4C72D /* CubeAsset2.h */,
@@ -509,6 +515,7 @@
 				8173786824619CFF00AE510F /* MaterialAsset.h in Headers */,
 				81F4421B24A17EDB009C443B /* CircleAsset2.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
+				811963AA24BFE08800414A03 /* CircleAsset3.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
 				8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */,
 				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
@@ -633,6 +640,7 @@
 				81655C0024501CEE006B370B /* BaseWipeAsset.m in Sources */,
 				8128A24C2472223900630772 /* TextureAnimatorAsset.m in Sources */,
 				817378702461A31C00AE510F /* Mesh.m in Sources */,
+				811963AB24BFE08800414A03 /* CircleAsset3.m in Sources */,
 				8106334322D302FD00A2073A /* FrameBufferObject.m in Sources */,
 				8192E82E242679F500EB7AAE /* TextureAsset.m in Sources */,
 				8173786C24619D1B00AE510F /* Material.m in Sources */,
