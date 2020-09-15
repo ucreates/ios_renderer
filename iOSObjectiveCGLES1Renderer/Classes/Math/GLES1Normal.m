@@ -37,4 +37,7 @@
     }
     return GLKVector3Make(x, y, z);
 }
++ (GLKVector3)add:(GLKVector3)vector1 vector2:(GLKVector3)vector2 {
+    return GLKVector3Add(vector1, vector2);
+}
 @end
