@@ -37,5 +37,6 @@ FOUNDATION_EXPORT const unsigned char iOSObjectiveCGLES1RendererVersionString[];
 #import "TriangleAsset1.h"
 #import "TriangleAsset2.h"
 #import "TriangleAsset3.h"
+#import "TriangleAsset4.h"
 #import "WipeAsset1.h"
 #import "glu.h"

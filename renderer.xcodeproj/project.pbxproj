@@ -85,6 +85,8 @@
 		819D80AA22D4524D0076832A /* GLES1Camera.h in Headers */ = {isa = PBXBuildFile; fileRef = 819D80A922D4524D0076832A /* GLES1Camera.h */; };
 		81B65D6A24A5DA190075C0D1 /* SphereAsset2.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B65D6824A5DA190075C0D1 /* SphereAsset2.h */; };
 		81B65D6B24A5DA190075C0D1 /* SphereAsset2.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B65D6924A5DA190075C0D1 /* SphereAsset2.m */; };
+		81B675CB2551AD88007B589E /* TriangleAsset4.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B675C92551AD88007B589E /* TriangleAsset4.h */; };
+		81B675CC2551AD88007B589E /* TriangleAsset4.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B675CA2551AD88007B589E /* TriangleAsset4.m */; };
 		81B76E1C243EB15900ADD9A6 /* GLES1Fog.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B76E1A243EB15800ADD9A6 /* GLES1Fog.h */; };
 		81B76E1D243EB15900ADD9A6 /* GLES1Fog.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B76E1B243EB15900ADD9A6 /* GLES1Fog.m */; };
 		81C08CCE24065565004F496A /* CubeAsset1.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C08CCC24065565004F496A /* CubeAsset1.m */; };
@@ -200,6 +202,8 @@
 		819D80A922D4524D0076832A /* GLES1Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Camera.h; sourceTree = "<group>"; };
 		81B65D6824A5DA190075C0D1 /* SphereAsset2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereAsset2.h; sourceTree = "<group>"; };
 		81B65D6924A5DA190075C0D1 /* SphereAsset2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereAsset2.m; sourceTree = "<group>"; };
+		81B675C92551AD88007B589E /* TriangleAsset4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset4.h; sourceTree = "<group>"; };
+		81B675CA2551AD88007B589E /* TriangleAsset4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleAsset4.m; sourceTree = "<group>"; };
 		81B76E1A243EB15800ADD9A6 /* GLES1Fog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLES1Fog.h; sourceTree = "<group>"; };
 		81B76E1B243EB15900ADD9A6 /* GLES1Fog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLES1Fog.m; sourceTree = "<group>"; };
 		81C08CCC24065565004F496A /* CubeAsset1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeAsset1.m; sourceTree = "<group>"; };
@@ -419,12 +423,14 @@
 		818755E523C319F8004BF64B /* Polygon */ = {
 			isa = PBXGroup;
 			children = (
-				81D89D512484C58000A56DBE /* TriangleAsset2.h */,
-				81D89D522484C58000A56DBE /* TriangleAsset2.m */,
 				818755E623C319F8004BF64B /* TriangleAsset1.h */,
 				818755E723C319F8004BF64B /* TriangleAsset1.m */,
+				81D89D512484C58000A56DBE /* TriangleAsset2.h */,
+				81D89D522484C58000A56DBE /* TriangleAsset2.m */,
 				8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */,
 				8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */,
+				81B675C92551AD88007B589E /* TriangleAsset4.h */,
+				81B675CA2551AD88007B589E /* TriangleAsset4.m */,
 				81C6E6512415BBBB00DB88F2 /* RectangleAsset1.h */,
 				81C6E6532415BBE000DB88F2 /* RectangleAsset1.m */,
 				819B185624A02D4E00BE4AA9 /* RectangleAsset2.h */,
@@ -530,6 +536,7 @@
 				81F4421B24A17EDB009C443B /* CircleAsset2.h in Headers */,
 				8106334122D302FD00A2073A /* FrameBufferObject.h in Headers */,
 				814EA169240630C10055F562 /* ModelViewTransformMatrix.h in Headers */,
+				81B675CB2551AD88007B589E /* TriangleAsset4.h in Headers */,
 				8128A24D2472223900630772 /* TextureAnimatorAsset.h in Headers */,
 				81655BFF24501CEE006B370B /* BaseWipeAsset.h in Headers */,
 				81C08CCF24065565004F496A /* CubeAsset1.h in Headers */,
@@ -666,6 +673,7 @@
 				81C6E6542415BBE000DB88F2 /* RectangleAsset1.m in Sources */,
 				81416DFC247366BD0082A367 /* TextureAtlasAnimatorAsset.m in Sources */,
 				81D89D542484C58000A56DBE /* TriangleAsset2.m in Sources */,
+				81B675CC2551AD88007B589E /* TriangleAsset4.m in Sources */,
 				8106333622D302FD00A2073A /* GLES1Renderer.m in Sources */,
 				81D4EC042410DC5E00E7B3F5 /* GLES1Light.m in Sources */,
 				8106334422D302FD00A2073A /* BaseBufferObject.m in Sources */,
