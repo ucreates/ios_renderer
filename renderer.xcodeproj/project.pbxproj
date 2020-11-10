@@ -61,6 +61,8 @@
 		816662FA245006B400C5993C /* StencilBufferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 816662F8245006B400C5993C /* StencilBufferObject.m */; };
 		8167B04224AABFC900FFB4A7 /* TriangleAsset3.h in Headers */ = {isa = PBXBuildFile; fileRef = 8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */; };
 		8167B04324AABFC900FFB4A7 /* TriangleAsset3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */; };
+		81690554255AAF2900C6BFBF /* RectangleAsset4.m in Sources */ = {isa = PBXBuildFile; fileRef = 81690552255AAF2800C6BFBF /* RectangleAsset4.m */; };
+		81690555255AAF2900C6BFBF /* RectangleAsset4.h in Headers */ = {isa = PBXBuildFile; fileRef = 81690553255AAF2900C6BFBF /* RectangleAsset4.h */; };
 		8173786724619CFF00AE510F /* MaterialAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173786524619CFF00AE510F /* MaterialAsset.m */; };
 		8173786824619CFF00AE510F /* MaterialAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786624619CFF00AE510F /* MaterialAsset.h */; };
 		8173786B24619D1B00AE510F /* Material.h in Headers */ = {isa = PBXBuildFile; fileRef = 8173786924619D1B00AE510F /* Material.h */; };
@@ -178,6 +180,8 @@
 		816662F8245006B400C5993C /* StencilBufferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StencilBufferObject.m; sourceTree = "<group>"; };
 		8167B04024AABFC900FFB4A7 /* TriangleAsset3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleAsset3.h; sourceTree = "<group>"; };
 		8167B04124AABFC900FFB4A7 /* TriangleAsset3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleAsset3.m; sourceTree = "<group>"; };
+		81690552255AAF2800C6BFBF /* RectangleAsset4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleAsset4.m; sourceTree = "<group>"; };
+		81690553255AAF2900C6BFBF /* RectangleAsset4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleAsset4.h; sourceTree = "<group>"; };
 		8173786524619CFF00AE510F /* MaterialAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialAsset.m; sourceTree = "<group>"; };
 		8173786624619CFF00AE510F /* MaterialAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialAsset.h; sourceTree = "<group>"; };
 		8173786924619D1B00AE510F /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Material.h; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 				819B185724A02D4E00BE4AA9 /* RectangleAsset2.m */,
 				814CB67624AD60C500277915 /* RectangleAsset3.h */,
 				814CB67724AD60C500277915 /* RectangleAsset3.m */,
+				81690553255AAF2900C6BFBF /* RectangleAsset4.h */,
+				81690552255AAF2800C6BFBF /* RectangleAsset4.m */,
 			);
 			path = Polygon;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81690555255AAF2900C6BFBF /* RectangleAsset4.h in Headers */,
 				8192E82C242679E100EB7AAE /* TextureAsset.h in Headers */,
 				8106333B22D302FD00A2073A /* BaseAsset.h in Headers */,
 				81B76E1C243EB15900ADD9A6 /* GLES1Fog.h in Headers */,
@@ -691,6 +698,7 @@
 				81F4421C24A17EDB009C443B /* CircleAsset2.m in Sources */,
 				8106333F22D302FD00A2073A /* Viewport.m in Sources */,
 				818755E923C319F8004BF64B /* TriangleAsset1.m in Sources */,
+				81690554255AAF2900C6BFBF /* RectangleAsset4.m in Sources */,
 				8173786724619CFF00AE510F /* MaterialAsset.m in Sources */,
 				8106333422D302FD00A2073A /* ModelViewTransformMatrix.m in Sources */,
 				819D80A822D450080076832A /* GLES1Camera.m in Sources */,
