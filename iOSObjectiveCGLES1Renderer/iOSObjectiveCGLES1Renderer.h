@@ -23,6 +23,7 @@ FOUNDATION_EXPORT const unsigned char iOSObjectiveCGLES1RendererVersionString[];
 #import "CubeAsset1.h"
 #import "CubeAsset2.h"
 #import "CubeAsset3.h"
+#import "CubeAsset4.h"
 #import "GLES1Light.h"
 #import "GLES1Renderer.h"
 #import "Material.h"
