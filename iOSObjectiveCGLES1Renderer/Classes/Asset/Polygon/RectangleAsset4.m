@@ -73,8 +73,11 @@
     return;
 }
 - (void)create:(NSString*)texturePath {
+    [self create:texturePath textureUnit:GL_TEXTURE0];
+}
+- (void)create:(NSString*)texturePath textureUnit:(GLenum)textureUnit {
     self->_texture = [[TextureAsset alloc] init];
-    [self->_texture load:texturePath];
+    [self->_texture load:texturePath textureUnit:textureUnit];
     GLfloat vratio = 1.0f - self->_texture.uvRatio.height;
     float x = 0.5f * self->_width;
     float y = 0.5f * self->_height;

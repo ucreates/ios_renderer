@@ -11,25 +11,35 @@
 #import <GLKit/GLKit.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "GLES1Renderer.h"
 @interface GLES1Camera ()
 @end
 @implementation GLES1Camera
 @synthesize fov;
-@synthesize near;
-@synthesize far;
+@synthesize orthoNear;
+@synthesize orthoFar;
+@synthesize perspectiveNear;
+@synthesize perspectiveFar;
 @synthesize eye;
 @synthesize center;
 @synthesize up;
 @synthesize clearColor;
 - (id)init {
     self->clearColor = [[GLESColor alloc] init];
-    self->near = 1.0f;
-    self->far = -1.0f;
+    self->orthoNear = 1.0f;
+    self->orthoFar = -1.0f;
+    self->perspectiveNear = 0.1f;
+    self->perspectiveFar = 100.0f;
     return self;
 }
-- (void)setClippingPlane:(GLfloat)nearPlane farPlane:(GLfloat)farPlane {
-    self.near = nearPlane;
-    self.far = farPlane;
+- (void)setClippingPlane:(GLfloat)nearPlane farPlane:(GLfloat)farPlane dimension:(int)dimension {
+    if (dimension == kDimension2D) {
+        self.orthoNear = nearPlane;
+        self.orthoFar = farPlane;
+    } else {
+        self.perspectiveNear = nearPlane;
+        self.perspectiveFar = farPlane;
+    }
     return;
 }
 - (void)setClear:(GLESColor*)clearColor {

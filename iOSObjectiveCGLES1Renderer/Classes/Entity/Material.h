@@ -36,8 +36,8 @@
 - (void)setAmbient:(GLESColor*)color;
 - (void)setDiffuse:(GLESColor*)color;
 - (void)setSpecular:(GLESColor*)color;
-- (void)setDiffuseTexture:(TextureAsset*)texture;
-- (void)setAmbientTexture:(TextureAsset*)texture;
-- (void)setNormalTexture:(TextureAsset*)texture;
+- (void)setDiffuseTexture:(NSString*)path;
+- (void)setAmbientTexture:(NSString*)path;
+- (void)setNormalTexture:(NSString*)path;
 @end
 #endif /* Material_h */

@@ -28,6 +28,9 @@
 - (void)create:(NSString*)texturePath {
     return;
 }
+- (void)create:(NSString*)texturePath textureUnit:(GLenum)textureUnit {
+    return;
+}
 - (void)dispose {
     if (nil != self->_vertex) {
         [self->_vertex releaseBuffer];

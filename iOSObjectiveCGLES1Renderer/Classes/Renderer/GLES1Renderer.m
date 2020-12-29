@@ -106,31 +106,39 @@
     [self->_viewport setScreenSize:width height:height];
     return;
 }
-- (void)transform:(int)dimension {
+- (void)clear {
+    [self clear:NO];
+    return;
+}
+- (void)clear:(BOOL)depth {
     [EAGLContext setCurrentContext:self.context];
+    [self->fbo bind];
+    [self->cbo bind];
+    if (NO == depth) {
+        [self->_viewport update:self->_camera];
+    } else {
+        glClear(GL_DEPTH_BUFFER_BIT);
+    }
+}
+- (void)transform:(int)dimension {
     if (kDimension2D == dimension) {
         GLfloat aspectRatio = [self->_viewport getAspectRatio];
-        GLfloat near = self->_camera.near;
-        GLfloat far = self->_camera.far;
-        [self->fbo bind];
-        [self->cbo bind];
-        [self->_viewport update:self->_camera];
+        GLfloat near = self->_camera.orthoNear;
+        GLfloat far = self->_camera.orthoFar;
         [self->projectonTransfomMatrix transform2D:aspectRatio near:near far:far];
         [self->modelViewTransfomMatrix transform2D];
     } else {
         GLfloat aspectRatio = [self->_viewport getAspectRatio];
         GLfloat fov = self->_camera.fov;
-        GLfloat near = self->_camera.near;
-        GLfloat far = self->_camera.far;
+        GLfloat near = self->_camera.perspectiveNear;
+        GLfloat far = self->_camera.perspectiveFar;
         GLKVector3 eye = self->_camera.eye;
         GLKVector3 center = self->_camera.center;
         GLKVector3 up = self->_camera.up;
-        [self->fbo bind];
-        [self->cbo bind];
-        [self->_viewport update:self->_camera];
         [self->projectonTransfomMatrix transform3D:fov aspectRatio:aspectRatio near:near far:far];
         [self->modelViewTransfomMatrix transform3D:eye center:center up:up];
     }
+    self->_dimension = dimension;
     return;
 }
 - (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime {
@@ -179,18 +187,13 @@
     if (nil != self->_fog) {
         glEnable(GL_FOG);
     }
-    if (nil != asset.texture) {
-        glEnable(GL_TEXTURE_2D);
-        if (nil != asset.blend) {
-            glEnable(GL_ALPHA_TEST);
-        }
-    } else if (nil != asset.material && NO != asset.material.hasTexture) {
+    if (nil != asset.material && NO != asset.material.hasTexture) {
         [asset.material enable];
         if (nil != asset.blend) {
             glEnable(GL_ALPHA_TEST);
         }
     }
-    if (0 < self.lights.count) {
+    if (0 < self.lights.count && kDimension3D == self->_dimension) {
         glEnable(GL_NORMALIZE);
         glEnable(GL_LIGHTING);
         if (nil == asset.material) {
@@ -202,15 +205,14 @@
     }
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
-    if (nil != asset.texture) {
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    }
-    if (0 < self.lights.count) {
+    if (0 < self.lights.count && kDimension3D == self->_dimension) {
         glEnableClientState(GL_NORMAL_ARRAY);
     }
     glCullFace(GL_BACK);
-    for (GLES1Light* light in self.lights) {
-        [light illuminate];
+    if (kDimension3D == self->_dimension) {
+        for (GLES1Light* light in self.lights) {
+            [light illuminate];
+        }
     }
     if (nil != asset.blend) {
         glBlendFunc(asset.blend.source, asset.blend.destination);
@@ -218,6 +220,13 @@
     glVertexPointer(asset.vertex.dimension, GL_FLOAT, 0, asset.vertex.verticies);
     glColorPointer(kRGBA, GL_FLOAT, 0, asset.vertex.colors);
     if (nil != asset.texture) {
+        glEnableClientState(asset.texture.textureUnit);
+        glActiveTexture(asset.texture.textureUnit);
+        glEnable(GL_TEXTURE_2D);
+        if (nil != asset.blend) {
+            glEnable(GL_ALPHA_TEST);
+        }
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
         glTexCoordPointer(2, GL_FLOAT, 0, asset.vertex.uvs);
         glBindTexture(GL_TEXTURE_2D, asset.texture.textureId);
         if (nil != asset.blend) {
@@ -227,7 +236,7 @@
     if (nil != asset.material) {
         [asset.material setUVs:asset.vertex.uvs];
     }
-    if (0 < self.lights.count) {
+    if (0 < self.lights.count && kDimension3D == self->_dimension) {
         glNormalPointer(GL_FLOAT, 0, asset.vertex.normals);
     }
     GLfloat tx = asset.transform.position.v[0];
@@ -262,7 +271,7 @@
     glPopMatrix();
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
-    if (0 < self.lights.count) {
+    if (0 < self.lights.count && kDimension3D == self->_dimension) {
         glDisableClientState(GL_NORMAL_ARRAY);
         for (GLES1Light* light in self.lights) {
             [light disable];
@@ -273,6 +282,8 @@
         glDisable(GL_LIGHTING);
     }
     if (nil != asset.texture) {
+        glEnableClientState(asset.texture.textureUnit);
+        glActiveTexture(asset.texture.textureUnit);
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
         glDisable(GL_TEXTURE_2D);
         if (nil != asset.blend) {

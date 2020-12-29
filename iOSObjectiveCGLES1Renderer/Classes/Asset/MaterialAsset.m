@@ -81,21 +81,15 @@
           } else if (false != [command isEqualToString:@"map_Kd"]) {
               NSString* path = [data objectAtIndex:1];
               path = [NSString stringWithFormat:@"%@/%@", dirPath, path];
-              TextureAsset* texture = [[TextureAsset alloc] init];
-              [texture load:path];
-              [material setDiffuseTexture:texture];
+              [material setDiffuseTexture:path];
           } else if (false != [command isEqualToString:@"map_Ka"]) {
               NSString* path = [data objectAtIndex:1];
               path = [NSString stringWithFormat:@"%@/%@", dirPath, path];
-              TextureAsset* texture = [[TextureAsset alloc] init];
-              [texture load:path];
-              [material setAmbientTexture:texture];
+              [material setAmbientTexture:path];
           } else if (false != [command isEqualToString:@"map_Bump"]) {
               NSString* path = [data objectAtIndex:1];
               path = [NSString stringWithFormat:@"%@/%@", dirPath, path];
-              TextureAsset* texture = [[TextureAsset alloc] init];
-              [texture load:path];
-              [material setNormalTexture:texture];
+              [material setNormalTexture:path];
           }
       }
     }];

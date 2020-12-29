@@ -19,6 +19,10 @@
     return self;
 }
 - (void)load:(NSString*)path {
+    [self load:path textureUnit:GL_TEXTURE0];
+    return;
+}
+- (void)load:(NSString*)path textureUnit:(GLenum)textureUnit {
     UIImage* image = [UIImage imageNamed:path];
     CGImageRef imageRef = image.CGImage;
     if (nil == imageRef) {
@@ -35,9 +39,12 @@
     CGColorSpaceRef colorSpaceRef = CGImageGetColorSpace(imageRef);
     CGContextRef context = CGBitmapContextCreate(textureData, edge, edge, 8, stride, colorSpaceRef, kCGImageAlphaPremultipliedLast);
     CGRect rect = CGRectMake(0, 0, (CGFloat)width, (CGFloat)height);
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
     CGContextDrawImage(context, rect, imageRef);
     CGContextRelease(context);
     GLuint tid;
+    glEnableClientState(textureUnit);
+    glActiveTexture(textureUnit);
     glGenTextures(1, &tid);
     glBindTexture(GL_TEXTURE_2D, tid);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -45,19 +52,27 @@
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (CGFloat)edge, (CGFloat)edge, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+    glDisableClientState(textureUnit);
     free(textureData);
     GLfloat widthRate = (GLfloat)width / (GLfloat)edge;
     GLfloat heightRate = (GLfloat)height / (GLfloat)edge;
     self->_textureId = tid;
     self->_size = CGSizeMake(width, height);
     self->_uvRatio = CGSizeMake(widthRate, heightRate);
+    self->_textureUnit = textureUnit;
     return;
 }
 - (void)loadMipmap:(NSMutableArray<NSString*>*)paths {
+    [self loadMipmap:paths textureUnit:GL_TEXTURE0];
+    return;
+}
+- (void)loadMipmap:(NSMutableArray<NSString*>*)paths textureUnit:(GLenum)textureUnit {
     size_t width = 0;
     size_t height = 0;
     GLuint edge = 0;
     GLuint tid;
+    glEnableClientState(textureUnit);
+    glActiveTexture(textureUnit);
     glGenTextures(1, &tid);
     glBindTexture(GL_TEXTURE_2D, tid);
     for (int i = 0; i < paths.count; i++) {
@@ -81,6 +96,7 @@
         CGColorSpaceRef colorSpaceRef = CGImageGetColorSpace(imageRef);
         CGContextRef context = CGBitmapContextCreate(textureData, tmpEdge, tmpEdge, 8, stride, colorSpaceRef, kCGImageAlphaPremultipliedLast);
         CGRect rect = CGRectMake(0, 0, (CGFloat)tmpWidth, (CGFloat)tmpHeight);
+        CGContextSetBlendMode(context, kCGBlendModeCopy);
         CGContextDrawImage(context, rect, imageRef);
         CGContextRelease(context);
         glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
@@ -91,6 +107,7 @@
         glTexImage2D(GL_TEXTURE_2D, i, GL_RGBA, (CGFloat)tmpEdge, (CGFloat)tmpEdge, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
         free(textureData);
     }
+    glDisableClientState(textureUnit);
     GLfloat widthRate = (GLfloat)width / (GLfloat)edge;
     GLfloat heightRate = (GLfloat)height / (GLfloat)edge;
     self->_textureId = tid;

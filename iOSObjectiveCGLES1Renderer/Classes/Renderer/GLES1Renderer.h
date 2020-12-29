@@ -27,6 +27,7 @@ static const int kWipeIn = 1;
 static const int kWipeOut = 2;
 @interface GLES1Renderer : NSObject {
     GLES1Fog* _fog;
+    int _dimension;
 }
 @property(readonly) EAGLContext* context;
 @property(readonly) Viewport* viewport;
@@ -38,6 +39,8 @@ static const int kWipeOut = 2;
 - (void)delete;
 - (void)rebind:(CAEAGLLayer*)layer;
 - (void)transform:(int)dimension;
+- (void)clear;
+- (void)clear:(BOOL)depth;
 - (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime;
 - (void)render:(BaseAsset*)asset;
 - (void)present;

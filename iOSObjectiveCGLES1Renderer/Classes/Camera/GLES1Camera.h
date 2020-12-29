@@ -14,14 +14,16 @@
 #import "GLESColor.h"
 @interface GLES1Camera : NSObject
 @property GLfloat fov;
-@property GLfloat near;
-@property GLfloat far;
+@property GLfloat orthoNear;
+@property GLfloat orthoFar;
+@property GLfloat perspectiveNear;
+@property GLfloat perspectiveFar;
 @property GLKVector3 eye;
 @property GLKVector3 center;
 @property GLKVector3 up;
 @property GLESColor* clearColor;
 - (id)init;
-- (void)setClippingPlane:(GLfloat)nearPlane farPlane:(GLfloat)farPlane;
+- (void)setClippingPlane:(GLfloat)nearPlane farPlane:(GLfloat)farPlane dimension:(int)dimension;
 - (void)setClear:(GLESColor*)clearColor;
 - (void)setFOV:(GLfloat)fov;
 - (void)setLookAt:(GLKVector3)eye center:(GLKVector3)center up:(GLKVector3)up;

@@ -15,12 +15,14 @@
 #import <OpenGLES/ES1/glext.h>
 @interface TextureAsset : NSObject {
     GLuint _textureId;
+    GLenum _textureUnit;
     CGSize _uvRatio;
     CGSize _size;
     GLenum _alphaComparisonFunction;
     GLclampf _alphaReferenceValue;
 }
 @property(readonly) GLuint textureId;
+@property(readonly) GLenum textureUnit;
 @property(readonly) CGSize size;
 @property(readonly) CGSize uvRatio;
 @property(readonly) GLenum alphaComparisonFunction;
@@ -28,6 +30,8 @@
 - (id)init;
 - (void)releaseBuffer;
 - (void)load:(NSString*)path;
+- (void)load:(NSString*)path textureUnit:(GLenum)textureUnit;
 - (void)loadMipmap:(NSMutableArray<NSString*>*)paths;
+- (void)loadMipmap:(NSMutableArray<NSString*>*)paths textureUnit:(GLenum)textureUnit;
 @end
 #endif /* TextureAsset_h */

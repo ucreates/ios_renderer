@@ -167,17 +167,23 @@
     }
     return;
 }
-- (void)setDiffuseTexture:(TextureAsset*)texture {
+- (void)setDiffuseTexture:(NSString*)path {
+    TextureAsset* texture = [[TextureAsset alloc] init];
+    [texture load:path textureUnit:GL_TEXTURE2];
     self->_diffuseTexture = texture;
     self->_hasTexture = YES;
     return;
 }
-- (void)setAmbientTexture:(TextureAsset*)texture {
+- (void)setAmbientTexture:(NSString*)path {
+    TextureAsset* texture = [[TextureAsset alloc] init];
+    [texture load:path textureUnit:GL_TEXTURE1];
     self->_ambientTexture = texture;
     self->_hasTexture = YES;
     return;
 }
-- (void)setNormalTexture:(TextureAsset*)texture {
+- (void)setNormalTexture:(NSString*)path {
+    TextureAsset* texture = [[TextureAsset alloc] init];
+    [texture load:path textureUnit:GL_TEXTURE0];
     self->_normalTexture = texture;
     self->_hasTexture = YES;
     return;
