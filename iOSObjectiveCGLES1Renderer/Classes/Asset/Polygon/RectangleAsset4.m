@@ -79,8 +79,8 @@
     self->_texture = [[TextureAsset alloc] init];
     [self->_texture load:texturePath textureUnit:textureUnit];
     GLfloat vratio = 1.0f - self->_texture.uvRatio.height;
-    float x = 0.5f * self->_width;
-    float y = 0.5f * self->_height;
+    GLfloat x = self->_width;
+    GLfloat y = self->_height;
     GLfloat vertices[] = {
         // left down
         -x,

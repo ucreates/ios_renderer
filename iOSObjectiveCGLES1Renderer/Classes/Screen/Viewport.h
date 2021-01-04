@@ -15,6 +15,8 @@
 #import "GLES1Camera.h"
 #import "GLESColor.h"
 @interface Viewport : NSObject
+@property GLint width;
+@property GLint height;
 - (id)init;
 - (void)update:(GLES1Camera*)camera;
 - (void)setScreenSize:(GLuint)width height:(GLint)height;

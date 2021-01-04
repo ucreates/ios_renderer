@@ -248,6 +248,13 @@
     GLfloat rx = asset.transform.rotation.v[0];
     GLfloat ry = asset.transform.rotation.v[1];
     GLfloat rz = asset.transform.rotation.v[2];
+    if (nil != asset.texture && kDimension2D == self->_dimension) {
+        GLfloat aspectRatio = [self.viewport getAspectRatio];
+        GLfloat tx = (GLfloat)asset.texture.size.width / (GLfloat)self.viewport.width;
+        GLfloat ty = (GLfloat)asset.texture.size.height / (GLfloat)self.viewport.height;
+        sx *= tx * aspectRatio;
+        sy *= ty;
+    }
     glPushMatrix();
     glTranslatef(tx, ty, tz);
     glScalef(sx, sy, sz);

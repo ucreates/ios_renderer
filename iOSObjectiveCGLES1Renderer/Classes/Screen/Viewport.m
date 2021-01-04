@@ -11,8 +11,6 @@
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 @interface Viewport ()
-@property GLint width;
-@property GLint height;
 @end
 @implementation Viewport
 @synthesize width;
