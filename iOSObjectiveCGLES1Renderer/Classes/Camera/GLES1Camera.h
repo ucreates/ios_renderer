@@ -11,7 +11,7 @@
 #define GLES1Camera_h
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
-#import "GLESColor.h"
+#import "GLES1Color.h"
 @interface GLES1Camera : NSObject
 @property GLfloat fov;
 @property GLfloat orthoNear;
@@ -21,10 +21,10 @@
 @property GLKVector3 eye;
 @property GLKVector3 center;
 @property GLKVector3 up;
-@property GLESColor* clearColor;
+@property GLES1Color* clearColor;
 - (id)init;
 - (void)setClippingPlane:(GLfloat)nearPlane farPlane:(GLfloat)farPlane dimension:(int)dimension;
-- (void)setClear:(GLESColor*)clearColor;
+- (void)setClear:(GLES1Color*)clearColor;
 - (void)setFOV:(GLfloat)fov;
 - (void)setLookAt:(GLKVector3)eye center:(GLKVector3)center up:(GLKVector3)up;
 @end

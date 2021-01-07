@@ -7,26 +7,19 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Fog_h
-#define GLES1Fog_h
+#ifndef GLES1Viewport_h
+#define GLES1Viewport_h
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
+#import "GLES1Camera.h"
 #import "GLES1Color.h"
-@interface GLES1Fog : NSObject {
-    GLenum _fogMode;
-    GLenum _hint;
-    GLfloat* _position;
-    GLfloat* _color;
-    GLfloat _density;
-}
-- (id)init:(GLenum)fogMode;
-- (void)releaseBuffer;
-- (void)mist;
-- (void)setPosition:(GLfloat)start end:(GLfloat)end;
-- (void)setDirection:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
-- (void)setColor:(GLES1Color*)color;
-- (void)setDensity:(GLfloat)density;
-- (void)setHint:(GLenum)hint;
+@interface GLES1Viewport : NSObject
+@property GLint width;
+@property GLint height;
+- (id)init;
+- (void)update:(GLES1Camera*)camera;
+- (void)setScreenSize:(GLuint)width height:(GLint)height;
+- (GLfloat)getAspectRatio;
 @end
-#endif /* GLES1Fog_h */
+#endif /* GLES1Viewport_h */

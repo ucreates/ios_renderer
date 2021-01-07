@@ -7,26 +7,19 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Fog_h
-#define GLES1Fog_h
+#ifndef GLES1BaseBufferObject_h
+#define GLES1BaseBufferObject_h
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
-#import "GLES1Color.h"
-@interface GLES1Fog : NSObject {
-    GLenum _fogMode;
-    GLenum _hint;
-    GLfloat* _position;
-    GLfloat* _color;
-    GLfloat _density;
+@interface GLES1BaseBufferObject : NSObject {
+    GLuint _bufferId;
 }
-- (id)init:(GLenum)fogMode;
+@property(readonly) GLuint bufferId;
+- (void)allocateBuffer;
 - (void)releaseBuffer;
-- (void)mist;
-- (void)setPosition:(GLfloat)start end:(GLfloat)end;
-- (void)setDirection:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
-- (void)setColor:(GLES1Color*)color;
-- (void)setDensity:(GLfloat)density;
-- (void)setHint:(GLenum)hint;
+- (void)bind;
+- (void)unbind;
+- (void)rebind:(GLint)width height:(GLint)height;
 @end
-#endif /* GLES1Fog_h */
+#endif /* GLES1BaseBufferObject_h */

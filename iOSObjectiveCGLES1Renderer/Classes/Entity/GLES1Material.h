@@ -7,29 +7,37 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Light_h
-#define GLES1Light_h
+#ifndef GLES1Material_h
+#define GLES1Material_h
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "GLES1Color.h"
-@interface GLES1Light : NSObject {
-    GLenum _lightId;
-    GLfloat* _position;
-    GLfloat* _direction;
+#import "GLES1TextureAsset.h"
+@interface GLES1Material : NSObject {
+    NSString* _name;
     GLfloat* _ambient;
     GLfloat* _diffuse;
     GLfloat* _specular;
+    BOOL _hasTexture;
+    GLES1TextureAsset* _diffuseTexture;
+    GLES1TextureAsset* _ambientTexture;
+    GLES1TextureAsset* _normalTexture;
 }
-- (id)init:(GLenum)lightId;
+@property(readonly) BOOL hasTexture;
+@property(readonly) NSString* name;
+- (id)init;
 - (void)releaseBuffer;
 - (void)enable;
 - (void)disable;
-- (void)illuminate;
-- (void)setPosition:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
-- (void)setDirection:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
+- (void)reflect;
+- (void)setName:(NSString*)name;
+- (void)setUVs:(GLfloat*)uvs;
 - (void)setAmbient:(GLES1Color*)color;
 - (void)setDiffuse:(GLES1Color*)color;
 - (void)setSpecular:(GLES1Color*)color;
+- (void)setDiffuseTexture:(NSString*)path;
+- (void)setAmbientTexture:(NSString*)path;
+- (void)setNormalTexture:(NSString*)path;
 @end
-#endif /* GLES1Light_h */
+#endif /* GLES1Material_h */

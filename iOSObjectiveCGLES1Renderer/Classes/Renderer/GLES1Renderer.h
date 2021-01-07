@@ -13,13 +13,13 @@
 #import <GLKit/GLKit.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
-#import "BaseAsset.h"
-#import "BaseWipeAsset.h"
+#import "GLES1BaseAsset.h"
+#import "GLES1BaseWipeAsset.h"
 #import "GLES1Camera.h"
+#import "GLES1Color.h"
 #import "GLES1Fog.h"
 #import "GLES1Light.h"
-#import "GLESColor.h"
-#import "Viewport.h"
+#import "GLES1Viewport.h"
 static const int kDimension2D = 2;
 static const int kDimension3D = 3;
 static const int kRGBA = 4;
@@ -30,7 +30,7 @@ static const int kWipeOut = 2;
     int _dimension;
 }
 @property(readonly) EAGLContext* context;
-@property(readonly) Viewport* viewport;
+@property(readonly) GLES1Viewport* viewport;
 @property(readonly) GLES1Camera* camera;
 - (id)init;
 - (void)create;
@@ -41,8 +41,8 @@ static const int kWipeOut = 2;
 - (void)transform:(int)dimension;
 - (void)clear;
 - (void)clear:(BOOL)depth;
-- (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime;
-- (void)render:(BaseAsset*)asset;
+- (void)render:(GLES1BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime;
+- (void)render:(GLES1BaseAsset*)asset;
 - (void)present;
 - (void)addLight:(GLES1Light*)light;
 - (void)setFog:(GLES1Fog*)fog;

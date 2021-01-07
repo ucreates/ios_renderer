@@ -9,20 +9,20 @@
 // ======================================================================
 #import "GLES1Renderer.h"
 #import <Foundation/Foundation.h>
-#import "ColorBufferObject.h"
-#import "DepthBufferObject.h"
-#import "FrameBufferObject.h"
-#import "ModelViewTransformMatrix.h"
-#import "ProjectonTransfomMatrix.h"
-#import "StencilBufferObject.h"
+#import "GLES1ColorBufferObject.h"
+#import "GLES1DepthBufferObject.h"
+#import "GLES1FrameBufferObject.h"
+#import "GLES1ModelViewTransformMatrix.h"
+#import "GLES1ProjectonTransfomMatrix.h"
+#import "GLES1StencilBufferObject.h"
 @interface GLES1Renderer ()
-@property FrameBufferObject* fbo;
-@property ColorBufferObject* cbo;
-@property DepthBufferObject* dbo;
-@property StencilBufferObject* sbo;
+@property GLES1FrameBufferObject* fbo;
+@property GLES1ColorBufferObject* cbo;
+@property GLES1DepthBufferObject* dbo;
+@property GLES1StencilBufferObject* sbo;
 @property NSMutableArray<GLES1Light*>* lights;
-@property ProjectonTransfomMatrix* projectonTransfomMatrix;
-@property ModelViewTransformMatrix* modelViewTransfomMatrix;
+@property GLES1ProjectonTransfomMatrix* projectonTransfomMatrix;
+@property GLES1ModelViewTransformMatrix* modelViewTransfomMatrix;
 @end
 @implementation GLES1Renderer
 @synthesize context;
@@ -38,10 +38,10 @@
 }
 - (void)create {
     self->context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
-    self->projectonTransfomMatrix = [[ProjectonTransfomMatrix alloc] init];
-    self->modelViewTransfomMatrix = [[ModelViewTransformMatrix alloc] init];
+    self->projectonTransfomMatrix = [[GLES1ProjectonTransfomMatrix alloc] init];
+    self->modelViewTransfomMatrix = [[GLES1ModelViewTransformMatrix alloc] init];
     self->lights = [[NSMutableArray alloc] init];
-    self->_viewport = [[Viewport alloc] init];
+    self->_viewport = [[GLES1Viewport alloc] init];
     self->_camera = [[GLES1Camera alloc] init];
     [EAGLContext setCurrentContext:self->context];
     return;
@@ -51,12 +51,12 @@
     return;
 }
 - (void)bind:(CAEAGLLayer*)layer width:(GLint)width height:(GLint)height attachmentType:(GLenum)attachmentType {
-    self->fbo = [[FrameBufferObject alloc] init];
-    self->cbo = [[ColorBufferObject alloc] init];
+    self->fbo = [[GLES1FrameBufferObject alloc] init];
+    self->cbo = [[GLES1ColorBufferObject alloc] init];
     if (GL_DEPTH_ATTACHMENT_OES == attachmentType) {
-        self->dbo = [[DepthBufferObject alloc] init];
+        self->dbo = [[GLES1DepthBufferObject alloc] init];
     } else {
-        self->sbo = [[StencilBufferObject alloc] init];
+        self->sbo = [[GLES1StencilBufferObject alloc] init];
     }
     [self->fbo allocateBuffer];
     [self->cbo allocateBuffer];
@@ -141,7 +141,7 @@
     self->_dimension = dimension;
     return;
 }
-- (void)render:(BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime {
+- (void)render:(GLES1BaseWipeAsset*)asset wipeType:(int)wipeType delta:(GLfloat)delta totalTime:(GLfloat)totalTime {
     glEnable(GL_STENCIL_TEST);
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
@@ -174,7 +174,7 @@
     glDisable(GL_STENCIL_TEST);
     return;
 }
-- (void)render:(BaseAsset*)asset {
+- (void)render:(GLES1BaseAsset*)asset {
     if (nil == asset.blend) {
         glEnable(GL_DEPTH_TEST);
     } else {

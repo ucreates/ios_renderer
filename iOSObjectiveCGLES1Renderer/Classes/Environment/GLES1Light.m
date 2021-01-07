@@ -86,7 +86,7 @@
     self->_direction[2] = z;
     return;
 }
-- (void)setAmbient:(GLESColor*)color {
+- (void)setAmbient:(GLES1Color*)color {
     if (nil == self->_ambient) {
         int memsize = 4 * sizeof(GLfloat);
         self->_ambient = (GLfloat*)malloc(memsize);
@@ -97,7 +97,7 @@
     self->_ambient[3] = 1.0f;
     return;
 }
-- (void)setDiffuse:(GLESColor*)color {
+- (void)setDiffuse:(GLES1Color*)color {
     if (nil == self->_diffuse) {
         int memsize = 4 * sizeof(GLfloat);
         self->_diffuse = (GLfloat*)malloc(memsize);
@@ -108,7 +108,7 @@
     self->_diffuse[3] = 1.0f;
     return;
 }
-- (void)setSpecular:(GLESColor*)color {
+- (void)setSpecular:(GLES1Color*)color {
     if (nil == self->_specular) {
         int memsize = 4 * sizeof(GLfloat);
         self->_specular = (GLfloat*)malloc(memsize);

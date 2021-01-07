@@ -25,7 +25,7 @@
 @synthesize up;
 @synthesize clearColor;
 - (id)init {
-    self->clearColor = [[GLESColor alloc] init];
+    self->clearColor = [[GLES1Color alloc] init];
     self->orthoNear = 1.0f;
     self->orthoFar = -1.0f;
     self->perspectiveNear = 0.1f;
@@ -42,7 +42,7 @@
     }
     return;
 }
-- (void)setClear:(GLESColor*)clearColor {
+- (void)setClear:(GLES1Color*)clearColor {
     self.clearColor = clearColor;
     return;
 }

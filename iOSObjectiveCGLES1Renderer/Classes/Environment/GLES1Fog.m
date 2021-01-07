@@ -47,7 +47,7 @@
     self->_position[1] = end;
     return;
 }
-- (void)setColor:(GLESColor*)color {
+- (void)setColor:(GLES1Color*)color {
     if (nil == self->_color) {
         int memsize = 4 * sizeof(GLfloat);
         self->_color = (GLfloat*)malloc(memsize);

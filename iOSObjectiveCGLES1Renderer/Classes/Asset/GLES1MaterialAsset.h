@@ -7,26 +7,16 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#ifndef GLES1Fog_h
-#define GLES1Fog_h
+#ifndef GLES1MaterialAsset_h
+#define GLES1MaterialAsset_h
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES1/gl.h>
 #import <OpenGLES/ES1/glext.h>
 #import "GLES1Color.h"
-@interface GLES1Fog : NSObject {
-    GLenum _fogMode;
-    GLenum _hint;
-    GLfloat* _position;
-    GLfloat* _color;
-    GLfloat _density;
-}
-- (id)init:(GLenum)fogMode;
-- (void)releaseBuffer;
-- (void)mist;
-- (void)setPosition:(GLfloat)start end:(GLfloat)end;
-- (void)setDirection:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
-- (void)setColor:(GLES1Color*)color;
-- (void)setDensity:(GLfloat)density;
-- (void)setHint:(GLenum)hint;
+#import "GLES1Material.h"
+#import "GLES1TextureAsset.h"
+@interface GLES1MaterialAsset : NSObject
+- (id)init;
+- (NSMutableDictionary<NSString*, GLES1Material*>*)create:(NSString*)mtlPath;
 @end
-#endif /* GLES1Fog_h */
+#endif /* GLES1MaterialAsset_h */
