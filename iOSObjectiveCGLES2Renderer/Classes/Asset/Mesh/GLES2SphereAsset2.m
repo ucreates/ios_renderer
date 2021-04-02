@@ -7,19 +7,19 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#import "GLES1SphereAsset2.h"
-#import "GLES1Angle.h"
-#import "GLES1Normal.h"
-#import "GLES1Renderer.h"
-@interface GLES1SphereAsset2 ()
+#import "GLES2SphereAsset2.h"
+#import "GLES2Angle.h"
+#import "GLES2Normal.h"
+#import "GLES2Renderer.h"
+@interface GLES2SphereAsset2 ()
 @end
-@implementation GLES1SphereAsset2
-- (id)init:(GLfloat)radius divideCount:(int)divideCount color:(GLES1Color*)color {
+@implementation GLES2SphereAsset2
+- (id)init:(GLfloat)radius divideCount:(int)divideCount color:(GLES2Color*)color bufferType:(int)bufferType {
     self = [super init];
     self->_radius = radius;
     self->_color = color;
     self->_divideCount = divideCount;
-    self->_vertex = [[GLES1VertexArray alloc] init:kDimension3D];
+    self->_vertex = [[GLES2Vertex alloc] init:kDimension3D bufferType:bufferType];
     return self;
 }
 - (void)create {
@@ -96,8 +96,8 @@
             GLKVector3 surfaceNormal2 = surfaceNormals[v1];
             GLKVector3 surfaceNormal3 = surfaceNormals[v3];
             GLKVector3 surfaceNormal4 = surfaceNormals[v4];
-            GLKVector3 triangleNormal1 = [GLES1Normal toNormal:x1 y1:y1 z1:z1 x2:x2 y2:y2 z2:z2 x3:x3 y3:y3 z3:z3];
-            GLKVector3 triangleNormal2 = [GLES1Normal toNormal:x4 y1:y4 z1:z4 x2:x5 y2:y5 z2:z5 x3:x6 y3:y6 z3:z6];
+            GLKVector3 triangleNormal1 = [GLES2Normal toNormal:x1 y1:y1 z1:z1 x2:x2 y2:y2 z2:z2 x3:x3 y3:y3 z3:z3];
+            GLKVector3 triangleNormal2 = [GLES2Normal toNormal:x4 y1:y4 z1:z4 x2:x5 y2:y5 z2:z5 x3:x6 y3:y6 z3:z6];
             surfaceNormals[v1] = GLKVector3Add(surfaceNormal1, triangleNormal1);
             surfaceNormals[v2] = GLKVector3Add(surfaceNormal2, triangleNormal1);
             surfaceNormals[v3] = GLKVector3Add(surfaceNormal3, triangleNormal1);
@@ -123,9 +123,10 @@
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:verticies verticiesCount:verticesLength];
-    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setColors:colors colorsCount:colorsLength];
     [self->_vertex setNormals:normals normalsCount:normalsLength];
     [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
+    [self->_vertex allocateBuffer];
     free(verticies);
     free(colors);
     free(normals);
@@ -133,9 +134,14 @@
     free(indicies);
     return;
 }
-- (void)create:(NSString*)texturePath {
-    self->_texture = [[GLES1TextureAsset alloc] init];
-    [self->_texture load:texturePath];
+- (void)create:(NSString*)texturePath textureUnitName:(NSString*)textureUnitName textureUnitNumber:(int)textureUnitNumber {
+    [self create:texturePath textureUnit:GL_TEXTURE0 textureUnitName:textureUnitName textureUnitNumber:textureUnitNumber];
+    return;
+}
+- (void)create:(NSString*)texturePath textureUnit:(GLenum)textureUnit textureUnitName:(NSString*)textureUnitName textureUnitNumber:(int)textureUnitNumber {
+    self->_texture = [[GLES2TextureAsset alloc] init];
+    [self->_texture setTextureUnit:textureUnitName textureNum:textureUnitNumber];
+    [self->_texture load:texturePath textureUnit:textureUnit];
     int vertexCount = (self->_divideCount - 1) * self->_divideCount * 2 * kDimension3D;
     int verticesLength = self->_divideCount * self->_divideCount * kDimension3D;
     int colorsLength = vertexCount * kRGBA;
@@ -218,8 +224,8 @@
             GLKVector3 surfaceNormal2 = surfaceNormals[v1];
             GLKVector3 surfaceNormal3 = surfaceNormals[v3];
             GLKVector3 surfaceNormal4 = surfaceNormals[v4];
-            GLKVector3 triangleNormal1 = [GLES1Normal toNormal:x1 y1:y1 z1:z1 x2:x2 y2:y2 z2:z2 x3:x3 y3:y3 z3:z3];
-            GLKVector3 triangleNormal2 = [GLES1Normal toNormal:x4 y1:y4 z1:z4 x2:x5 y2:y5 z2:z5 x3:x6 y3:y6 z3:z6];
+            GLKVector3 triangleNormal1 = [GLES2Normal toNormal:x1 y1:y1 z1:z1 x2:x2 y2:y2 z2:z2 x3:x3 y3:y3 z3:z3];
+            GLKVector3 triangleNormal2 = [GLES2Normal toNormal:x4 y1:y4 z1:z4 x2:x5 y2:y5 z2:z5 x3:x6 y3:y6 z3:z6];
             surfaceNormals[v1] = GLKVector3Add(surfaceNormal1, triangleNormal1);
             surfaceNormals[v2] = GLKVector3Add(surfaceNormal2, triangleNormal1);
             surfaceNormals[v3] = GLKVector3Add(surfaceNormal3, triangleNormal1);
@@ -245,10 +251,11 @@
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:verticies verticiesCount:verticesLength];
-    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setColors:colors colorsCount:colorsLength];
     [self->_vertex setUVs:uvs uvsCount:uvsLength];
     [self->_vertex setNormals:normals normalsCount:normalsLength];
     [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
+    [self->_vertex allocateBuffer];
     free(verticies);
     free(colors);
     free(uvs);

@@ -23,7 +23,7 @@
     return self;
 }
 - (void)create {
-    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 4;
+    int vertexCount = (self->_divideCount - 1) * self->_divideCount * kRectangleVertexCount;
     int originVertexCount = self->_divideCount * self->_divideCount;
     int verticesLength = vertexCount * kDimension3D;
     int originVerticesLength = originVertexCount * kDimension3D;
@@ -79,7 +79,7 @@
                 verticies[vidx + 6] = originVerticies[v3idx];
                 verticies[vidx + 7] = originVerticies[v3idx + 1];
                 verticies[vidx + 8] = originVerticies[v3idx + 2];
-                vidx += kDimension3D * 3;
+                vidx += kDimension3D * kTriangleVertexCount;
             } else {
                 verticies[vidx] = originVerticies[v1idx];
                 verticies[vidx + 1] = originVerticies[v1idx + 1];
@@ -93,7 +93,7 @@
                 verticies[vidx + 9] = originVerticies[v4idx];
                 verticies[vidx + 10] = originVerticies[v4idx + 1];
                 verticies[vidx + 11] = originVerticies[v4idx + 2];
-                vidx += kDimension3D * 4;
+                vidx += kDimension3D * kRectangleVertexCount;
             }
         }
     }
@@ -171,7 +171,7 @@
 - (void)create:(NSString*)texturePath {
     self->_texture = [[GLES1TextureAsset alloc] init];
     [self->_texture load:texturePath];
-    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 4;
+    int vertexCount = (self->_divideCount - 1) * self->_divideCount * kRectangleVertexCount;
     int originVertexCount = self->_divideCount * self->_divideCount;
     int verticesLength = vertexCount * kDimension3D;
     int uvsLength = vertexCount * kDimension2D;
@@ -250,8 +250,8 @@
                 uvs[uviidx + 3] = originUVs[uv2idx + 1];
                 uvs[uviidx + 4] = originUVs[uv3idx];
                 uvs[uviidx + 5] = originUVs[uv3idx + 1];
-                vidx += kDimension3D * 3;
-                uviidx += kDimension2D * 3;
+                vidx += kDimension3D * kTriangleVertexCount;
+                uviidx += kDimension2D * kTriangleVertexCount;
             } else {
                 verticies[vidx] = originVerticies[v1idx];
                 verticies[vidx + 1] = originVerticies[v1idx + 1];
@@ -273,8 +273,8 @@
                 uvs[uviidx + 5] = originUVs[uv3idx + 1];
                 uvs[uviidx + 6] = originUVs[uv4idx];
                 uvs[uviidx + 7] = originUVs[uv4idx + 1];
-                vidx += kDimension3D * 4;
-                uviidx += kDimension2D * 4;
+                vidx += kDimension3D * kRectangleVertexCount;
+                uviidx += kDimension2D * kRectangleVertexCount;
             }
         }
     }

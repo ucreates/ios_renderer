@@ -23,10 +23,10 @@
     return self;
 }
 - (void)create {
-    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 2 * 3;
-    int originVerticesLength = self->_divideCount * self->_divideCount * 3;
-    int verticesLength = vertexCount * 3;
-    int colorsLength = vertexCount * 4;
+    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 2 * kDimension3D;
+    int originVerticesLength = self->_divideCount * self->_divideCount * kDimension3D;
+    int verticesLength = vertexCount * kDimension3D;
+    int colorsLength = vertexCount * kRGBA;
     int normalsLength = verticesLength;
     int originVerticesMemsize = originVerticesLength * sizeof(GLfloat);
     int verticesMemsize = verticesLength * sizeof(GLfloat);
@@ -50,17 +50,17 @@
             originVerticies[vidx] = x * self->_radius;
             originVerticies[vidx + 1] = y * self->_radius;
             originVerticies[vidx + 2] = z * self->_radius;
-            vidx += 3;
+            vidx += kDimension3D;
         }
     }
     int iidx = 0;
     for (int j = 0; j < self->_divideCount - 1; ++j) {
         int stack = j * self->_divideCount;
         for (int i = 0; i < self->_divideCount; ++i) {
-            int vidx1 = (stack + i) * 3;
-            int vidx2 = (stack + i + 1) * 3;
-            int vidx3 = (stack + i + self->_divideCount) * 3;
-            int vidx4 = (stack + i + self->_divideCount + 1) * 3;
+            int vidx1 = (stack + i) * kDimension3D;
+            int vidx2 = (stack + i + 1) * kDimension3D;
+            int vidx3 = (stack + i + self->_divideCount) * kDimension3D;
+            int vidx4 = (stack + i + self->_divideCount + 1) * kDimension3D;
             GLfloat x1 = originVerticies[vidx1];
             GLfloat y1 = originVerticies[vidx1 + 1];
             GLfloat z1 = originVerticies[vidx1 + 2];
@@ -117,10 +117,10 @@
             normals[iidx + 15] = triangleNormal2.x;
             normals[iidx + 16] = triangleNormal2.y;
             normals[iidx + 17] = triangleNormal2.z;
-            iidx += 18;
+            iidx += (kTriangleVertexCount * kDimension3D * 2);
         }
     }
-    for (int i = 0; i < colorsLength; i += 4) {
+    for (int i = 0; i < colorsLength; i += kRGBA) {
         colors[i] = self->_color.r;
         colors[i + 1] = self->_color.g;
         colors[i + 2] = self->_color.b;
@@ -139,13 +139,13 @@
 - (void)create:(NSString*)texturePath {
     self->_texture = [[GLES1TextureAsset alloc] init];
     [self->_texture load:texturePath];
-    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 2 * 3;
-    int originVerticesLength = self->_divideCount * self->_divideCount * 3;
-    int originUVsLength = self->_divideCount * self->_divideCount * 2;
-    int verticesLength = vertexCount * 3;
-    int colorsLength = vertexCount * 4;
+    int vertexCount = (self->_divideCount - 1) * self->_divideCount * 2 * kDimension3D;
+    int originVerticesLength = self->_divideCount * self->_divideCount * kDimension3D;
+    int originUVsLength = self->_divideCount * self->_divideCount * kUVCount;
+    int verticesLength = vertexCount * kDimension3D;
+    int colorsLength = vertexCount * kRGBA;
     int normalsLength = verticesLength;
-    int uvsLength = vertexCount * 2;
+    int uvsLength = vertexCount * kUVCount;
     int originVerticesMemsize = originVerticesLength * sizeof(GLfloat);
     int originUVSMemsize = originUVsLength * sizeof(GLfloat);
     int verticesMemsize = verticesLength * sizeof(GLfloat);
@@ -177,8 +177,8 @@
             GLfloat v2ratio = 1.0f - self->_texture.uvRatio.height;
             originUVs[uvidx] = u * self->_texture.uvRatio.width;
             originUVs[uvidx + 1] = v * v1ratio + v2ratio;
-            vidx += 3;
-            uvidx += 2;
+            vidx += kDimension3D;
+            uvidx += kUVCount;
         }
     }
     int iidx = 0;
@@ -186,14 +186,14 @@
     for (int j = 0; j < self->_divideCount - 1; ++j) {
         int stack = j * self->_divideCount;
         for (int i = 0; i < self->_divideCount; ++i) {
-            int vidx1 = (stack + i) * 3;
-            int vidx2 = (stack + i + 1) * 3;
-            int vidx3 = (stack + i + self->_divideCount) * 3;
-            int vidx4 = (stack + i + self->_divideCount + 1) * 3;
-            int uidx1 = (stack + i) * 2;
-            int uidx2 = (stack + i + 1) * 2;
-            int uidx3 = (stack + i + self->_divideCount) * 2;
-            int uidx4 = (stack + i + self->_divideCount + 1) * 2;
+            int vidx1 = (stack + i) * kDimension3D;
+            int vidx2 = (stack + i + 1) * kDimension3D;
+            int vidx3 = (stack + i + self->_divideCount) * kDimension3D;
+            int vidx4 = (stack + i + self->_divideCount + 1) * kDimension3D;
+            int uidx1 = (stack + i) * kUVCount;
+            int uidx2 = (stack + i + 1) * kUVCount;
+            int uidx3 = (stack + i + self->_divideCount) * kUVCount;
+            int uidx4 = (stack + i + self->_divideCount + 1) * kUVCount;
             GLfloat x1 = originVertices[vidx1];
             GLfloat y1 = originVertices[vidx1 + 1];
             GLfloat z1 = originVertices[vidx1 + 2];
@@ -262,11 +262,11 @@
             uvs[uviidx + 9] = originUVs[uidx2 + 1];
             uvs[uviidx + 10] = originUVs[uidx4];
             uvs[uviidx + 11] = originUVs[uidx4 + 1];
-            iidx += 18;
-            uviidx += 12;
+            iidx += (kTriangleVertexCount * kDimension3D * 2);
+            uviidx += (kUVCount * kDimension3D * 2);
         }
     }
-    for (int i = 0; i < colorsLength; i += 4) {
+    for (int i = 0; i < colorsLength; i += kRGBA) {
         colors[i] = self->_color.r;
         colors[i + 1] = self->_color.g;
         colors[i + 2] = self->_color.b;

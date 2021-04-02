@@ -7,18 +7,18 @@
 // If such findings are accepted at any time.
 // We hope the tips and helpful in developing.
 // ======================================================================
-#import "GLES1CircleAsset2.h"
-#import "GLES1Angle.h"
-#import "GLES1Renderer.h"
-@interface GLES1CircleAsset2 ()
+#import "GLES2CircleAsset2.h"
+#import "GLES2Angle.h"
+#import "GLES2Renderer.h"
+@interface GLES2CircleAsset2 ()
 @end
-@implementation GLES1CircleAsset2
-- (id)init:(GLfloat)radius divideCount:(int)divideCount color:(GLES1Color*)color {
+@implementation GLES2CircleAsset2
+- (id)init:(GLfloat)radius divideCount:(int)divideCount color:(GLES2Color*)color bufferType:(int)bufferType {
     self = [super init];
     self->_radius = radius;
     self->_color = color;
     self->_divideCount = divideCount;
-    self->_vertex = [[GLES1VertexArray alloc] init:kDimension2D];
+    self->_vertex = [[GLES2Vertex alloc] init:kDimension2D bufferType:bufferType];
     return self;
 }
 - (void)create {
@@ -36,8 +36,8 @@
         GLfloat unitDegree = (360.0 / self->_divideCount);
         GLfloat degree1 = (GLfloat)didx * unitDegree;
         GLfloat degree2 = (GLfloat)(didx + 1) * unitDegree;
-        GLfloat radian1 = [GLES1Angle toRadian:degree1];
-        GLfloat radian2 = [GLES1Angle toRadian:degree2];
+        GLfloat radian1 = [GLES2Angle toRadian:degree1];
+        GLfloat radian2 = [GLES2Angle toRadian:degree2];
         GLfloat x1 = cosf(radian1) * self->_radius;
         GLfloat y1 = sinf(radian1) * self->_radius;
         GLfloat x2 = cosf(radian2) * self->_radius;
@@ -82,16 +82,18 @@
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
-    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setColors:colors colorsCount:colorsLength];
     [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
+    [self->_vertex allocateBuffer];
     return;
 }
-- (void)create:(NSString*)texturePath {
-    [self create:texturePath textureUnit:GL_TEXTURE0];
+- (void)create:(NSString*)texturePath textureUnitName:(NSString*)textureUnitName textureUnitNumber:(int)textureUnitNumber {
+    [self create:texturePath textureUnit:GL_TEXTURE0 textureUnitName:textureUnitName textureUnitNumber:textureUnitNumber];
     return;
 }
-- (void)create:(NSString*)texturePath textureUnit:(GLenum)textureUnit {
-    self->_texture = [[GLES1TextureAsset alloc] init];
+- (void)create:(NSString*)texturePath textureUnit:(GLenum)textureUnit textureUnitName:(NSString*)textureUnitName textureUnitNumber:(int)textureUnitNumber {
+    self->_texture = [[GLES2TextureAsset alloc] init];
+    [self->_texture setTextureUnit:textureUnitName textureNum:textureUnitNumber];
     [self->_texture load:texturePath textureUnit:textureUnit];
     GLfloat uratio = self->_texture.uvRatio.width;
     GLfloat v1ratio = self->_texture.uvRatio.height;
@@ -120,8 +122,8 @@
         GLfloat unitDegree = (360.0 / self->_divideCount);
         GLfloat degree1 = (GLfloat)didx * unitDegree;
         GLfloat degree2 = (GLfloat)(didx + 1) * unitDegree;
-        GLfloat radian1 = [GLES1Angle toRadian:degree1];
-        GLfloat radian2 = [GLES1Angle toRadian:degree2];
+        GLfloat radian1 = [GLES2Angle toRadian:degree1];
+        GLfloat radian2 = [GLES2Angle toRadian:degree2];
         GLfloat x1 = cosf(radian1) * self->_radius;
         GLfloat y1 = sinf(radian1) * self->_radius;
         GLfloat x2 = cosf(radian2) * self->_radius;
@@ -171,9 +173,10 @@
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
-    [self->_vertex setColors:colors vertexColorsCount:colorsLength];
+    [self->_vertex setColors:colors colorsCount:colorsLength];
     [self->_vertex setUVs:uvs uvsCount:uvsLength];
     [self->_vertex setIndicies:indicies indiciesCount:indiciesLength];
+    [self->_vertex allocateBuffer];
     return;
 }
 - (GLenum)renderMode {

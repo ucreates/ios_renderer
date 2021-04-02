@@ -75,7 +75,11 @@
     [GLES2Shader setUniformMatrix4fv:self->_viewAttributeName programObjectHandle:asset.po.handle value:self->_viewMatrix];
     [GLES2Shader setUniformMatrix4fv:self->_modelAttributeName programObjectHandle:asset.po.handle value:modelMatrix];
     [asset bind:delta];
-    glDrawArrays(asset.renderType, 0, asset.vertex.count);
+    if (0 < asset.vertex.indexCount) {
+        glDrawElements(asset.renderType, asset.vertex.indexCount, GL_UNSIGNED_SHORT, nil);
+    } else {
+        glDrawArrays(asset.renderType, 0, asset.vertex.count);
+    }
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
     glUseProgram(0);

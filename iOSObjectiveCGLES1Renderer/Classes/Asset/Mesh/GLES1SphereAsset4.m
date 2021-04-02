@@ -222,7 +222,7 @@
             surfaceNormals[v3] = GLKVector3Add(surfaceNormal3, triangleNormal2);
             surfaceNormals[v2] = GLKVector3Add(surfaceNormal2, triangleNormal2);
             surfaceNormals[v4] = GLKVector3Add(surfaceNormal4, triangleNormal2);
-            iidx += 4;
+            iidx += kRectangleVertexCount;
         }
     }
     int nidx = 0;
@@ -233,7 +233,7 @@
         normals[nidx + 2] = vn.z;
         nidx += kDimension3D;
     }
-    for (int i = 0; i < colorsLength; i += 4) {
+    for (int i = 0; i < colorsLength; i += kRectangleVertexCount) {
         colors[i] = self->_color.r;
         colors[i + 1] = self->_color.g;
         colors[i + 2] = self->_color.b;

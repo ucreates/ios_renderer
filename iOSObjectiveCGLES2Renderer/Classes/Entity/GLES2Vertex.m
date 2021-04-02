@@ -30,11 +30,17 @@
     if (nil != self->_vo) {
         [self->_vo allocateBuffer];
     }
+    if (nil != self->_ibo) {
+        [self->_ibo allocateBuffer];
+    }
     return;
 }
 - (void)bind:(GLES2ProgramObject*)programObject {
     if (nil != self->_vo) {
         [self->_vo bind:programObject];
+    }
+    if (nil != self->_ibo) {
+        [self->_ibo bind];
     }
     return;
 }
@@ -68,6 +74,11 @@
     }
     return;
 }
+- (void)setIndicies:(GLushort*)indicies indiciesCount:(int)indiciesCount {
+    self->_ibo = [[GLES2IndexBufferObject alloc] init];
+    [self->_ibo setIndicies:indicies indiciesCount:indiciesCount];
+    return;
+}
 - (void)setRandomColor:(NSString*)uniformName programObject:(GLES2ProgramObject*)programObject {
     if (nil != self->_vo) {
         [self->_vo setRandomColor:uniformName programObject:programObject];
@@ -85,6 +96,13 @@
     int count = 0;
     if (nil != self->_vo) {
         count = self->_vo.count;
+    }
+    return count;
+}
+- (int)indexCount {
+    int count = 0;
+    if (nil != self->_ibo) {
+        count = self->_ibo.count;
     }
     return count;
 }

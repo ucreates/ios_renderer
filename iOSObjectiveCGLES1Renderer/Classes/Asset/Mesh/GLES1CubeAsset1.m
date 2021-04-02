@@ -10,6 +10,7 @@
 #import "GLES1CubeAsset1.h"
 #import "GLES1Color.h"
 #import "GLES1Normal.h"
+#import "GLES1Renderer.h"
 @implementation GLES1CubeAsset1
 - (id)init:(GLfloat)width height:(GLfloat)height depth:(GLfloat)depth color:(GLES1Color*)color {
     self = [super init];
@@ -17,7 +18,7 @@
     self->_height = height;
     self->_depth = depth;
     self->_color = color;
-    self->_vertex = [[GLES1VertexArray alloc] init:3];
+    self->_vertex = [[GLES1VertexArray alloc] init:kDimension3D];
     return self;
 }
 - (void)create {
@@ -304,7 +305,7 @@
     int vertexCount = verticiesLength / self.vertex.dimension;
     int normalsMemsize = normalsLength * sizeof(GLfloat);
     GLfloat* normals = (GLfloat*)malloc(normalsMemsize);
-    for (int i = 0; i < verticiesLength; i += 9) {
+    for (int i = 0; i < verticiesLength; i += (kTriangleVertexCount * kDimension3D)) {
         GLfloat x1 = verticies[i];
         GLfloat y1 = verticies[i + 1];
         GLfloat z1 = verticies[i + 2];
@@ -700,7 +701,7 @@
     int vertexCount = verticiesLength / self.vertex.dimension;
     int normalsMemsize = normalsLength * sizeof(GLfloat);
     GLfloat* normals = (GLfloat*)malloc(normalsMemsize);
-    for (int i = 0; i < verticiesLength; i += 9) {
+    for (int i = 0; i < verticiesLength; i += (kTriangleVertexCount * kDimension3D)) {
         GLfloat x1 = verticies[i];
         GLfloat y1 = verticies[i + 1];
         GLfloat z1 = verticies[i + 2];
@@ -1097,7 +1098,7 @@
     int vertexCount = verticiesLength / self.vertex.dimension;
     int normalsMemsize = normalsLength * sizeof(GLfloat);
     GLfloat* normals = (GLfloat*)malloc(normalsMemsize);
-    for (int i = 0; i < verticiesLength; i += 9) {
+    for (int i = 0; i < verticiesLength; i += (kTriangleVertexCount * kDimension3D)) {
         GLfloat x1 = verticies[i];
         GLfloat y1 = verticies[i + 1];
         GLfloat z1 = verticies[i + 2];

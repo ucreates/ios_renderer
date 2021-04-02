@@ -22,15 +22,15 @@
     return self;
 }
 - (void)create {
-    int vertexCount = self->_divideCount * 3;
+    int vertexCount = self->_divideCount * kTriangleVertexCount;
     int verticesLength = vertexCount * kDimension2D;
-    int vertexMemsize = verticesLength * sizeof(GLfloat);
     int colorsLength = vertexCount * kRGBA;
+    int vertexMemsize = verticesLength * sizeof(GLfloat);
     int colorsMemsize = colorsLength * sizeof(GLfloat);
     GLfloat* vertices = (GLfloat*)malloc(vertexMemsize);
     GLfloat* colors = (GLfloat*)malloc(colorsMemsize);
     int didx = 0;
-    for (int i = 0; i < verticesLength; i += 6) {
+    for (int i = 0; i < verticesLength; i += (kTriangleVertexCount * 2)) {
         GLfloat unitDegree = (360.0 / self->_divideCount);
         GLfloat degree1 = (GLfloat)didx * unitDegree;
         GLfloat degree2 = (GLfloat)(didx + 1) * unitDegree;
@@ -48,7 +48,7 @@
         vertices[i + 5] = y2;
         didx++;
     }
-    for (int i = 0; i < colorsLength; i += 12) {
+    for (int i = 0; i < colorsLength; i += (kTriangleVertexCount * kRGBA * kDimension2D)) {
         colors[i] = self->_color.r;
         colors[i + 1] = self->_color.g;
         colors[i + 2] = self->_color.b;
@@ -61,6 +61,18 @@
         colors[i + 9] = self->_color.g;
         colors[i + 10] = self->_color.b;
         colors[i + 11] = self->_color.a;
+        colors[i + 12] = self->_color.r;
+        colors[i + 13] = self->_color.g;
+        colors[i + 14] = self->_color.b;
+        colors[i + 15] = self->_color.a;
+        colors[i + 16] = self->_color.r;
+        colors[i + 17] = self->_color.g;
+        colors[i + 18] = self->_color.b;
+        colors[i + 19] = self->_color.a;
+        colors[i + 20] = self->_color.r;
+        colors[i + 21] = self->_color.g;
+        colors[i + 22] = self->_color.b;
+        colors[i + 23] = self->_color.a;
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:vertices verticiesCount:verticesLength];
@@ -79,17 +91,18 @@
     GLfloat v2ratio = 1.0f - self->_texture.uvRatio.height;
     GLfloat curatio = 0.5f * uratio;
     GLfloat cvratio = 0.5f * v1ratio + v2ratio;
-    int vertexCount = self->_divideCount * 3;
+    int vertexCount = self->_divideCount * kTriangleVertexCount;
     int verticesLength = vertexCount * kDimension2D;
-    int vertexMemsize = verticesLength * sizeof(GLfloat);
     int colorsLength = vertexCount * kRGBA;
-    int colorsMemsize = colorsLength * sizeof(GLfloat);
     int uvsLength = verticesLength;
+    int vertexMemsize = verticesLength * sizeof(GLfloat);
+    int colorsMemsize = colorsLength * sizeof(GLfloat);
+    int uvsMemsize = uvsLength * sizeof(GLfloat);
     GLfloat* vertices = (GLfloat*)malloc(vertexMemsize);
     GLfloat* colors = (GLfloat*)malloc(colorsMemsize);
-    GLfloat* uvs = (GLfloat*)malloc(vertexMemsize);
+    GLfloat* uvs = (GLfloat*)malloc(uvsMemsize);
     int didx = 0;
-    for (int i = 0; i < verticesLength; i += 6) {
+    for (int i = 0; i < verticesLength; i += (kTriangleVertexCount * 2)) {
         GLfloat unitDegree = (360.0 / self->_divideCount);
         GLfloat degree1 = (GLfloat)didx * unitDegree;
         GLfloat degree2 = (GLfloat)(didx + 1) * unitDegree;
@@ -117,7 +130,7 @@
         uvs[i + 5] = -1 * v2 * v1ratio + cvratio;
         didx++;
     }
-    for (int i = 0; i < colorsLength; i += 12) {
+    for (int i = 0; i < colorsLength; i += (kTriangleVertexCount * kRGBA * kDimension2D)) {
         colors[i] = self->_color.r;
         colors[i + 1] = self->_color.g;
         colors[i + 2] = self->_color.b;
@@ -130,6 +143,18 @@
         colors[i + 9] = self->_color.g;
         colors[i + 10] = self->_color.b;
         colors[i + 11] = self->_color.a;
+        colors[i + 12] = self->_color.r;
+        colors[i + 13] = self->_color.g;
+        colors[i + 14] = self->_color.b;
+        colors[i + 15] = self->_color.a;
+        colors[i + 16] = self->_color.r;
+        colors[i + 17] = self->_color.g;
+        colors[i + 18] = self->_color.b;
+        colors[i + 19] = self->_color.a;
+        colors[i + 20] = self->_color.r;
+        colors[i + 21] = self->_color.g;
+        colors[i + 22] = self->_color.b;
+        colors[i + 23] = self->_color.a;
     }
     [self->_vertex setVertexCount:vertexCount];
     [self->_vertex setVerticies:vertices verticiesCount:verticesLength];

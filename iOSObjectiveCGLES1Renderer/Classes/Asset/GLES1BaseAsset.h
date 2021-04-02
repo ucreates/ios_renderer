@@ -19,6 +19,9 @@
 #import "GLES1TextureAsset.h"
 #import "GLES1Transform.h"
 #import "GLES1VertexArray.h"
+static const int kUVCount = 2;
+static const int kTriangleVertexCount = 3;
+static const int kRectangleVertexCount = 4;
 @interface GLES1BaseAsset : NSObject {
     GLfloat _width;
     GLfloat _height;

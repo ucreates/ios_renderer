@@ -98,16 +98,16 @@
                   [tmpUvArray addObject:uv];
                   [tmpNormalArray addObject:normal];
               }
-              if (3 == tmpGLES1VertexArray.count) {
+              if (kTriangleVertexCount == tmpGLES1VertexArray.count) {
                   NSNumber* t1 = [tmpGLES1VertexArray objectAtIndex:0];
                   NSNumber* t2 = [tmpGLES1VertexArray objectAtIndex:1];
                   NSNumber* t3 = [tmpGLES1VertexArray objectAtIndex:2];
                   int tidx1 = [t1 intValue] - 1;
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
-                  tidx1 *= 3;
-                  tidx2 *= 3;
-                  tidx3 *= 3;
+                  tidx1 *= kDimension3D;
+                  tidx2 *= kDimension3D;
+                  tidx3 *= kDimension3D;
                   NSNumber* x1 = [vertexOriginArray objectAtIndex:tidx1];
                   NSNumber* y1 = [vertexOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* z1 = [vertexOriginArray objectAtIndex:tidx1 + 2];
@@ -126,13 +126,13 @@
                   [GLES1VertexArray addObject:x3];
                   [GLES1VertexArray addObject:y3];
                   [GLES1VertexArray addObject:z3];
-                  int count = 3 * kRGBA;
+                  int count = kTriangleVertexCount * kRGBA;
                   for (int i = 0; i < count; i++) {
                       NSNumber* color = [NSNumber numberWithFloat:1.0f];
                       [colorArray addObject:color];
                   }
-                  vertexCount += 3;
-              } else if (4 == tmpGLES1VertexArray.count) {
+                  vertexCount += kTriangleVertexCount;
+              } else if (kRectangleVertexCount == tmpGLES1VertexArray.count) {
                   NSNumber* t1 = [tmpGLES1VertexArray objectAtIndex:0];
                   NSNumber* t2 = [tmpGLES1VertexArray objectAtIndex:1];
                   NSNumber* t3 = [tmpGLES1VertexArray objectAtIndex:2];
@@ -141,10 +141,10 @@
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
                   int tidx4 = [t4 intValue] - 1;
-                  tidx1 *= 3;
-                  tidx2 *= 3;
-                  tidx3 *= 3;
-                  tidx4 *= 3;
+                  tidx1 *= kDimension3D;
+                  tidx2 *= kDimension3D;
+                  tidx3 *= kDimension3D;
+                  tidx4 *= kDimension3D;
                   NSNumber* x1 = [vertexOriginArray objectAtIndex:tidx1];
                   NSNumber* y1 = [vertexOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* z1 = [vertexOriginArray objectAtIndex:tidx1 + 2];
@@ -175,23 +175,23 @@
                   [GLES1VertexArray addObject:x3];
                   [GLES1VertexArray addObject:y3];
                   [GLES1VertexArray addObject:z3];
-                  int count = 6 * kRGBA;
+                  int count = 2 * kTriangleVertexCount * kRGBA;
                   for (int i = 0; i < count; i++) {
                       NSNumber* color = [NSNumber numberWithFloat:1.0f];
                       [colorArray addObject:color];
                   }
-                  vertexCount += 6;
+                  vertexCount += (2 * kTriangleVertexCount);
               }
-              if (3 == tmpUvArray.count) {
+              if (kTriangleVertexCount == tmpUvArray.count) {
                   NSNumber* t1 = [tmpUvArray objectAtIndex:0];
                   NSNumber* t2 = [tmpUvArray objectAtIndex:1];
                   NSNumber* t3 = [tmpUvArray objectAtIndex:2];
                   int tidx1 = [t1 intValue] - 1;
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
-                  tidx1 *= 2;
-                  tidx2 *= 2;
-                  tidx3 *= 2;
+                  tidx1 *= kUVCount;
+                  tidx2 *= kUVCount;
+                  tidx3 *= kUVCount;
                   NSNumber* u1 = [uvOriginArray objectAtIndex:tidx1];
                   NSNumber* v1 = [uvOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* u2 = [uvOriginArray objectAtIndex:tidx2];
@@ -210,7 +210,7 @@
                   [uvArray addObject:v2];
                   [uvArray addObject:u3];
                   [uvArray addObject:v3];
-              } else if (4 == tmpUvArray.count) {
+              } else if (kRectangleVertexCount == tmpUvArray.count) {
                   NSNumber* t1 = [tmpUvArray objectAtIndex:0];
                   NSNumber* t2 = [tmpUvArray objectAtIndex:1];
                   NSNumber* t3 = [tmpUvArray objectAtIndex:2];
@@ -219,10 +219,10 @@
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
                   int tidx4 = [t4 intValue] - 1;
-                  tidx1 *= 2;
-                  tidx2 *= 2;
-                  tidx3 *= 2;
-                  tidx4 *= 2;
+                  tidx1 *= kUVCount;
+                  tidx2 *= kUVCount;
+                  tidx3 *= kUVCount;
+                  tidx4 *= kUVCount;
                   NSNumber* u1 = [uvOriginArray objectAtIndex:tidx1];
                   NSNumber* v1 = [uvOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* u2 = [uvOriginArray objectAtIndex:tidx2];
@@ -252,16 +252,16 @@
                   [uvArray addObject:u3];
                   [uvArray addObject:v3];
               }
-              if (3 == tmpNormalArray.count) {
+              if (kTriangleVertexCount == tmpNormalArray.count) {
                   NSNumber* t1 = [tmpNormalArray objectAtIndex:0];
                   NSNumber* t2 = [tmpNormalArray objectAtIndex:1];
                   NSNumber* t3 = [tmpNormalArray objectAtIndex:2];
                   int tidx1 = [t1 intValue] - 1;
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
-                  tidx1 *= 3;
-                  tidx2 *= 3;
-                  tidx3 *= 3;
+                  tidx1 *= kDimension3D;
+                  tidx2 *= kDimension3D;
+                  tidx3 *= kDimension3D;
                   NSNumber* x1 = [normalOriginArray objectAtIndex:tidx1];
                   NSNumber* y1 = [normalOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* z1 = [normalOriginArray objectAtIndex:tidx1 + 2];
@@ -280,7 +280,7 @@
                   [normalArray addObject:x3];
                   [normalArray addObject:y3];
                   [normalArray addObject:z3];
-              } else if (4 == tmpNormalArray.count) {
+              } else if (kRectangleVertexCount == tmpNormalArray.count) {
                   NSNumber* t1 = [tmpNormalArray objectAtIndex:0];
                   NSNumber* t2 = [tmpNormalArray objectAtIndex:1];
                   NSNumber* t3 = [tmpNormalArray objectAtIndex:2];
@@ -289,10 +289,10 @@
                   int tidx2 = [t2 intValue] - 1;
                   int tidx3 = [t3 intValue] - 1;
                   int tidx4 = [t4 intValue] - 1;
-                  tidx1 *= 3;
-                  tidx2 *= 3;
-                  tidx3 *= 3;
-                  tidx4 *= 3;
+                  tidx1 *= kDimension3D;
+                  tidx2 *= kDimension3D;
+                  tidx3 *= kDimension3D;
+                  tidx4 *= kDimension3D;
                   NSNumber* x1 = [normalOriginArray objectAtIndex:tidx1];
                   NSNumber* y1 = [normalOriginArray objectAtIndex:tidx1 + 1];
                   NSNumber* z1 = [normalOriginArray objectAtIndex:tidx1 + 2];

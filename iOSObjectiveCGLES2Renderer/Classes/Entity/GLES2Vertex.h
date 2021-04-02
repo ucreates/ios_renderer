@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "GLES2IndexBufferObject.h"
 #import "GLES2ProgramObject.h"
 #import "GLES2VertexArrayObject.h"
 #import "GLES2VertexBufferObject.h"
@@ -19,11 +20,14 @@ static const int kVBO = 1;
 static const int kVAO = 2;
 @interface GLES2Vertex : NSObject {
     GLES2BaseVertexBufferObject* _vo;
+    GLES2IndexBufferObject* _ibo;
 }
 @property(readonly) int dimension;
 @property(readonly) int count;
+@property(readonly) int indexCount;
 @property(readonly) GLfloat* verticies;
 @property(readonly) GLfloat* colors;
+@property(readonly) GLushort* indicies;
 - (id)init:(int)dimension bufferType:(int)bufferType;
 - (void)releaseBuffer;
 - (void)allocateBuffer;
@@ -32,6 +36,7 @@ static const int kVAO = 2;
 - (void)setColors:(GLfloat*)colors colorsCount:(int)colorsCount;
 - (void)setUVs:(GLfloat*)uvs uvsCount:(int)uvsCount;
 - (void)setNormals:(GLfloat*)normals normalsCount:(int)normalsCount;
+- (void)setIndicies:(GLushort*)indicies indiciesCount:(int)indiciesCount;
 - (void)setRandomColor:(NSString*)uniformName programObject:(GLES2ProgramObject*)programObject;
 - (void)bind:(GLES2ProgramObject*)programObject;
 @end
